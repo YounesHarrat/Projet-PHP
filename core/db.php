@@ -12,9 +12,9 @@ class Db extends PDO {
     private const DBHOST = 'localhost';
     private const DBUSER = 'root';
     private const DBPASS = '';
-    private const DBNAME = 'demo';
+    private const DBNAME = 'film';
 
-    private function __construct()
+    public function __construct()
     {
         # on crée la connexion
         $pdo = 'mysql:dbname=' . self::DBNAME . ';host=' . self::DBHOST;
