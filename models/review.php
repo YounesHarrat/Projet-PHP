@@ -3,7 +3,7 @@ namespace App\models;
 use App\Core\Db;
 use PDO;
 
-class Model extends Db {
+class ReviewModel extends Db {
     private $db;
 
     public function __construct() {

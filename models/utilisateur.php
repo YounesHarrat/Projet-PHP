@@ -3,7 +3,7 @@ namespace App\models;
 use App\Core\Db;
 use PDO;
 
-class Model extends Db {
+class UtilisateurModel extends Db {
     private $db;
 
     public function __construct() {
@@ -22,5 +22,18 @@ class Model extends Db {
         $find = $this->db->query('SELECT * FROM film.utilisateur WHERE id='.$id);
         $try = $find->fetchAll(PDO::FETCH_OBJ);
         return $try;
+    }
+
+    public function login($login, $mdp){
+        $find = $this->db-> prepare('SELECT * FROM film.utilisateur WHERE login = ? and password = ?');
+        $find->execute(array($login, $mdp));
+        $result = $find->fetchAll();
+        if($result){
+            echo "oui";
+        }
+        else{
+            echo "non";
+        }
+        return $result;
     }
 }
