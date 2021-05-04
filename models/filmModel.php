@@ -7,10 +7,10 @@ class FilmModel extends Db {
     private $db;
 
     public function __construct() {
-
         # on instancie le singleton
         $this->db = Db::getInstance();
     }
+
     # méthode permettant de récupérer l'entièreté des users
     public function findAll() {
         $find = $this->db->query('SELECT * FROM film.film');
