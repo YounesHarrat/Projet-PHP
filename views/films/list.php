@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse titlePos" id="navbarNav">
         <h1 class="title">Cinech'Nord</h1>
     </div>
-    <a href="">
+    <a href="/index.php?controller=utilisateur&action=connexion">
     <button type="button" class="btn btn-outline-success btnConnexion">Se connecter</button>
     </a>
   </nav>

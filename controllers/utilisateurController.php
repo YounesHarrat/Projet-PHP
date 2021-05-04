@@ -10,7 +10,7 @@ class UtilisateurController{
         echo "aaaaaaaaaa";
     }
     
-    public function connexionCompte() {
+    public function connexion() {
         include_once('./views/user/connexion.php');
 
         if (isset($_POST['pseudo']) && $_POST['mdp'])
@@ -24,7 +24,7 @@ class UtilisateurController{
         }
     }
 
-    public function creationCompte() {  
+    public function creation() {  
         include_once('./views/user/creation.php');
 
         if (isset($_POST['pseudo']) && $_POST['mdp'])
