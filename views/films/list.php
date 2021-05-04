@@ -60,7 +60,7 @@ session_start();
                     <img class="imgFilm" src="<?=$f->affiche?>" alt="">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
+                <div class="card-body">
                     <h5 class="card-title"><?=$f->nom?></h5>
                     <p class="card-text"><B>Date de sortie :</B> <?= $f->dateSortie ?></p>
                     <p class="card-text"><B>Acteurs :</B> <?= $f->acteurs ?></p>
@@ -70,18 +70,32 @@ session_start();
                     </a>
                     <!-- Likes -->
                     <div class="likes">
-                    <button type="button" id="1" class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" id="2" class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" id="3" class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" id="4" class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" id="5" class="btn btnStar"><i class="far fa-star"></i></button>                   
+                    <button type="button" onclick=onClick(1,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
+                    <button type="button" onclick=onClick(2,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
+                    <button type="button" onclick=onClick(3,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
+                    <button type="button" onclick=onClick(4,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
+                    <button type="button" onclick=onClick(5,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>                   
                     </div>
                     
                 </div>
                 </div>
-            </div>
-        </div>
 
+                <!-- echo "<div style='justify-content: space-around;text-align:center;' > ";
+                echo "<br>";
+                echo "<img src='" . $f->affiche . "' style='width:240px;height:400px;'/><br><br>";
+                for($i = 1; $i<=5; $i++){
+                    echo "<button onclick='onClick(".$i.",".$f->id.")'>".$i."</button>";
+                }
+                echo '<p> <b>' . $f->nom . '</b>.</p>';
+                echo '<p> Date de Sortie : [ ' . $f->dateSortie . '].</p>';
+                echo '<p> Durée : ' . $f->duree . '.</p>';
+                echo '<p> Acteurs : <b> ' . $f->acteurs . '</b>.</p>';
+                // echo '<p> Affiche : ' . $f->affiche . '.</p>';
+                echo "</div>";
+            }
+            ?> -->
+        </div>
+        </div>
            <?php
             }
             ?>
@@ -98,4 +112,8 @@ session_start();
     </div>
     <!-- Copyright -->
   </footer>
+
+    </body>
+</html>
+<script type="text/javascript" src="./notation.js"></script>
 
