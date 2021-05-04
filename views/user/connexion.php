@@ -16,7 +16,7 @@
         <button type="submit" class="registerbtn">Se connecter</button>
 
         <div class="container signin">
-    <p>Vous n'avez pas de compte ? Creez en un ! <a href="#">S'enregistrer</a>.</p>
+    <p>Vous n'avez pas de compte ? Creez en un ! <a href="creationCompte" name="clickEnregistrer">S'enregistrer</a>.</p>
     </div>
     </form>
     </body>
@@ -27,7 +27,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: black;
 }
-
+a{
+  color: dodgerblue;
+}
 * {
   box-sizing: border-box;
 }
@@ -69,10 +71,6 @@ hr {
 
 .registerbtn:hover {
   opacity: 1;
-}
-
-a {
-  color: dodgerblue;
 }
 
 .signin {

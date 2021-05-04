@@ -14,13 +14,17 @@ class UtilisateurController{
         include_once('models/utilisateur.php');
         $um = new UtilisateurModel();
         $find = $um->login($_POST['pseudo'],$_POST['mdp'] );  
-        if($find){
-            var_dump($find);
-        }  
     }
     }
 
-    public function creationCompte() {        
-        include_once('views/user/create.php');
+    public function creationCompte() {  
+        include_once('views/user/creation.php');
+
+        if (isset($_POST['pseudo']) && $_POST['mdp'])
+        {
+            include_once('models/utilisateur.php');
+            $um = new UtilisateurModel();
+            $find = $um->register($_POST['pseudo'],$_POST['mdp'] );  
+        }
     }
 }

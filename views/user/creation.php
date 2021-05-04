@@ -9,14 +9,11 @@
     <div class="container">
         <h1> S'enregistrer </h1>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Saisir l'email" name="email" id="email" required>
+        <label for="pseudo"><b>Email</b></label>
+        <input type="text" placeholder="Saisir l'email" name="pseudo" id="email" required>
 
         <label for="psw"><b>Mot de passe</b></label>
         <input type="password" placeholder="Saisir le mot de passe" name="mdp" id="psw" required>
-
-        <label for="psw-repeat"><b>Repeter le mot de passe</b></label>
-        <input type="password" placeholder="Resaisir le mot de passe" name="mdp-repeat" id="psw-repeat" required>
 
         <button type="submit" class="registerbtn">S'enregistrer</button>
 
