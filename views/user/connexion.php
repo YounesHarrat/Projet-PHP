@@ -16,13 +16,14 @@
         <button type="submit" class="registerbtn">Se connecter</button>
 
         <div class="container signin">
-    <p>Vous n'avez pas de compte ? Creez en un ! <a href="index.php?controller=utilisateur&action=creationCompte" name="clickEnregistrer">S'enregistrer</a>.</p>
+    <p>Vous n'avez pas de compte ? Creez en un ! <a href="index.php?controller=utilisateur&action=creation" name="clickEnregistrer">S'enregistrer</a>.</p>
     </div>
     </form>
     </body>
 </html>
 
 <style>
+  /* // STYLING CSS // */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: black;

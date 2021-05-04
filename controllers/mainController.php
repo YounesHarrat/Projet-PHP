@@ -38,10 +38,10 @@ class MainController {
 
     public function connexion() {
         $uc = new UtilisateurController();
-        $uc->connexionCompte();
+        $uc->connexion();
     }
     public function inscription() {
         $uc = new UtilisateurController();
-        $uc->creationCompte();
+        $uc->creation();
     }
 }

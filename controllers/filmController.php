@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\FilmModel;
+use App\Models\ReviewModel;
 
 class FilmController {
     
@@ -18,11 +19,13 @@ class FilmController {
 
     public function detail($argsArray) {
         $films = new FilmModel();
-        // $reviews = new ReviewModel();
+        $reviews = new ReviewModel();
         $id = array_shift($argsArray);
         if (isset($id)) {
             $tab_f = $films->findOne($id);
-            // $tab_r = $reviews->findOne($id);
+            // $tab_r = $reviews->findAll();
+
+            $tab_r = $reviews->findOne($id);
         } else {
             $tab_f = $films->findOne(1);
             // $tab_r = $reviews->findOne(1);

@@ -18,7 +18,7 @@
         <button type="submit" class="registerbtn">S'enregistrer</button>
 
         <div class="container signin">
-    <p>Vous avez déjà un compte? <a href="index.php?controller=utilisateur&action=connexionCompte">Se connecter</a>.</p>
+    <p>Vous avez déjà un compte? <a href="index.php?controller=utilisateur&action=connexion">Se connecter</a>.</p>
     </div>
     </div>
     </form>
@@ -26,6 +26,9 @@
 </html>
 
 <style>
+
+    /* // STYLING CSS // */
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: black;

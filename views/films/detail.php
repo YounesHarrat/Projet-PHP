@@ -1,8 +1,13 @@
+<?php
+
+session_start();
+use App\Models\UtilisateurModel;
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Detail du Films</title>
+        <title>Liste des Films</title>
         <link rel='stylesheet' type='text/css' href='style\header.css'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/9d71c70935.js" crossorigin="anonymous"></script>
@@ -18,10 +23,38 @@
     <div class="collapse navbar-collapse titlePos" id="navbarNav">
         <h1 class="title">Cinech'Nord</h1>
     </div>
-    <a href="/index.php?controller=utilisateur&action=connexion">
-    <button type="button" class="btn btn-outline-success btnConnexion">Se connecter</button>
-    </a>
-  </nav>
+    
+<?php
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                echo "<b style='color:white;padding:30px;'>Welcome to the member's area, " . $_SESSION['pseudo'] . "!</b>";
+
+                // TODO redirect to login page after deconnexion successful
+                echo "
+                <a href='/index.php?controller=utilisateur&action=connexion'>
+                <button type='button' class='btn btn-outline-danger btnConnexion'>Se Deconnecter</button>
+                </a>
+                ";
+                // header('Location: /index.php?controller=film&action=list');
+
+            } else {
+                echo "
+                <a href='/index.php?controller=utilisateur&action=connexion'>
+                <button type='button' class='btn btn-outline-success btnConnexion'>Se connecter</button>
+                </a>
+                ";
+            }
+?>
+
+  
+</nav>
+
+<p>
+<h1>
+<a href="/index?controller=film&action=list" target="" >
+    <img src="https://i.pinimg.com/originals/18/8c/fa/188cfa53a6ef3231c4e261acc132112e.gif" style="width:15vw;margin:auto;height:5vh;padding:auto;"/>
+</a>Back to List
+</h1> </p>
+
 
 
 <div style="display:flex;flexDirection:row;padding: 10px; border: 1px solid black; flex-wrap: wrap; justify-content: space-evenly;">
@@ -43,6 +76,30 @@
     ?>
 </div>
 
+<!-- //TODO ajouter la partie REVIEW -->
+
+<div>
+    <h1> Reviews:  </h1>
+    <?php
+    foreach($tab_r as $r) {
+        $um = new UtilisateurModel();
+        $users = $um->findOne($r->fk_utilisateur);
+        $user = array_shift($users);
+    ?>
+    <div style="padding:30px;">
+        <h3>Utilisateur   
+        <?= $user->login ?> 
+            dit: 
+        </h3>
+        <p><?=$r->review?></p>
+    </div>
+
+
+    <?php
+    }
+    ?>
+
+</div>
 
 
 

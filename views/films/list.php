@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,10 +23,30 @@
     <div class="collapse navbar-collapse titlePos" id="navbarNav">
         <h1 class="title">Cinech'Nord</h1>
     </div>
-    <a href="/index.php?controller=utilisateur&action=connexion">
-    <button type="button" class="btn btn-outline-success btnConnexion">Se connecter</button>
-    </a>
-  </nav>
+    
+<?php
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                echo "<b style='color:white;padding:30px;'>Welcome to the member's area, " . $_SESSION['pseudo'] . "!</b>";
+
+                // TODO redirect to login page after deconnexion successful
+                echo "
+                <a href='/index.php?controller=utilisateur&action=connexion'>
+                <button type='button' class='btn btn-outline-danger btnConnexion'>Se Deconnecter</button>
+                </a>
+                ";
+                // header('Location: /index.php?controller=film&action=list');
+
+            } else {
+                echo "
+                <a href='/index.php?controller=utilisateur&action=connexion'>
+                <button type='button' class='btn btn-outline-success btnConnexion'>Se connecter</button>
+                </a>
+                ";
+            }
+?>
+
+  
+</nav>
 
 
 <!-- CARD -->
@@ -40,7 +65,7 @@
                     <p class="card-text"><B>Date de sortie :</B> <?= $f->dateSortie ?></p>
                     <p class="card-text"><B>Acteurs :</B> <?= $f->acteurs ?></p>
                     <!-- Route vers page info -->
-                    <a href="">
+                    <a href="/index.php?controller=film&action=detail&id=<?=$f->id?>">
                     <button type="button" class="btn btn-outline-secondary btnInfo">En savoir +</button>
                     </a>
                     <!-- Likes -->
