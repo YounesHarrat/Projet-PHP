@@ -1,6 +1,3 @@
-<div>
-
-<h1>CECI EST LA VUE FILMS LA PAGE FILMS FILMS FILMS</h1>
-
-
+<div style="text-align:center">
+    <h1>CECI EST LA VUE FILMS INDEX </h1>
 </div>

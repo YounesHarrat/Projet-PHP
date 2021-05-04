@@ -19,7 +19,7 @@ class FilmModel extends Db {
     }
     # méthode permettant de récupérer un user en particulier via son $id
     public function findOne($id) {
-        $find = $this->db->query('SELECT * FROM film.film WHERE id='.$id);
+        $find = $this->db->query('SELECT * FROM film.film WHERE id=' . $id);
         $try = $find->fetchAll(PDO::FETCH_OBJ);
         return $try;
     }
