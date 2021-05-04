@@ -28,8 +28,6 @@ class UtilisateurController{
             // TODO check if login success
 
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo "Welcome to the member's area, " . $_SESSION['pseudo'] . "!";
-
                 // TODO redirect to main page after login successful
                 header('Location: /index.php?controller=film&action=list');
 
