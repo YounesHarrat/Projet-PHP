@@ -6,6 +6,10 @@ use App\Models\UtilisateurModel;
 
 class UtilisateurController{
 
+    public function index() {
+
+    }
+    
     public function connexionCompte() {
         include_once('views/user/connexion.php');
 

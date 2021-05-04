@@ -5,7 +5,7 @@
     </head>
          
     <body>
-    <form action="identifiant" method="post">
+    <form action="" method="post">
     <div class="container">
         <h1> S'enregistrer </h1>
 
@@ -18,7 +18,7 @@
         <button type="submit" class="registerbtn">S'enregistrer</button>
 
         <div class="container signin">
-    <p>Vous avez déjà un compte? <a href="#">Se connecter</a>.</p>
+    <p>Vous avez déjà un compte? <a href="index.php?controller=utilisateur&action=connexionCompte">Se connecter</a>.</p>
     </div>
     </div>
     </form>
