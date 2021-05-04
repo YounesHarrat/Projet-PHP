@@ -23,4 +23,17 @@ class UtilisateurModel extends Db {
         $try = $find->fetchAll(PDO::FETCH_OBJ);
         return $try;
     }
+
+    public function login($login, $mdp){
+        $find = $this->db-> prepare('SELECT * FROM film.utilisateur WHERE login = ? and password = ?');
+        $find->execute(array($login, $mdp));
+        $result = $find->fetchAll();
+        return $result;
+    }
+    public function register($login, $mdp){
+        $find = $this->db->prepare('INSERT INTO film.utilisateur (`login`, `password`, `fk_role`) VALUES (?,?,1)');
+        $find->bindParam(1, $login);
+        $find->bindParam(2, $mdp);
+        $find->execute();
+    }
 }

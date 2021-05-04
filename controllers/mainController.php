@@ -35,4 +35,13 @@ class MainController {
         $fc = new FilmController();
         $fc->list();
     }
+    
+    public function connexion() {
+        $tc = new UtilisateurController();
+        $tc->connexionCompte();
+    }
+    public function inscription() {
+        $tc = new UtilisateurController();
+        $tc->creationCompte();
+    }
 }
