@@ -23,4 +23,11 @@ class FilmModel extends Db {
         $try = $find->fetchAll(PDO::FETCH_OBJ);
         return $try;
     }
+    public function addLike($idFilm, $nbr){
+        var_dump($nbr);
+        $find = $this->db->prepare('INSERT INTO film.likefilm (`likes`, `fk_films`) VALUES (?,?)');
+        $find->bindParam(1, $nbr);
+        $find->bindParam(2, $idFilm);
+        $find->execute();
+    }
 }
