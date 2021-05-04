@@ -1,0 +1,36 @@
+.retourListe{
+    text-decoration: none;
+    color: black;
+    
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.fas {
+    font-weight: 400;
+    color: #E67E22;
+}
+
+.formReview{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 50%;
+    margin: auto;
+}
+
+.review {
+    width: 50%;
+    margin-left: 15px;
+    margin-bottom: 12px;
+}
+
+.addReview{
+    margin-right: 20px;
+}
+
+.containerReview{
+    margin-bottom: 30px;
+}

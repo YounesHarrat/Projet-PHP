@@ -28,4 +28,10 @@ class ReviewController {
         include_once "./views/films/list.php";
     }
 
+    public function listReview() {
+        $films = new ReviewModel();
+        $tab_r = $films->findReviewByFilm();
+        include_once "./views/films/list.php";
+    }
+
 }
