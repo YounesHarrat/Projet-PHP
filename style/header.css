@@ -1,0 +1,47 @@
+.navbar{
+    border-bottom: 2px solid #E67E22;
+}
+
+.button{
+    background-color: #E67E22;
+}
+
+.title{
+    color: #E67E22;
+}
+
+.titlePos{
+    text-align: center;
+}
+
+.navbar-collapse{
+    margin-left: 36%;
+}
+
+.btnConnexion{
+    margin-right: 20px;
+}
+
+.imgFilm{
+    max-width: 200px;
+    max-height: 250px;
+}
+
+.btnInfo{
+    margin-left: 33%;
+}
+
+.logo{
+    width: 4%;
+    margin-left: 1%;
+}
+
+.far {
+    font-weight: 400;
+    color: #E67E22;
+}
+
+.likes{
+    margin-left: 10%;
+    margin-top: 10px;
+}
