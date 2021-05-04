@@ -9,11 +9,11 @@
     <div class="container">
         <h1> Se connecter </h1>
 
-        <label for="pseudo"><b>Email</b></label> : <input type="text" placeholder="Saisir l'email" name="pseudo" id="pseudo" />
+        <label for="pseudo"><b>Email</b></label> : <input type="email" placeholder="Saisir l'email" name="pseudo" id="pseudo" />
 
-        <label for="message"><b>Mot de passe</b></label> :  <input type="password" placeholder="Saisir le mot de passe" name="mdp" id="mdp" /><br />
+        <label for="mdp"><b>Mot de passe</b></label> :  <input type="password" placeholder="Saisir le mot de passe" name="mdp" id="mdp" /><br />
 
-        <button type="submit" class="registerbtn">Se connecter</button>
+        <button type="submit" class="registerbtn" onclick=verify()>Se connecter</button>
 
         <div class="container signin">
     <p>Vous n'avez pas de compte ? Creez en un ! <a href="index.php?controller=utilisateur&action=creation" name="clickEnregistrer">S'enregistrer</a>.</p>
@@ -40,7 +40,7 @@ a{
   background-color: white;
 }
 
-input[type=text], input[type=password] {
+input[type=email], input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -49,7 +49,7 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=email]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }

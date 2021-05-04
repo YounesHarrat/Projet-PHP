@@ -10,9 +10,9 @@
         <h1> S'enregistrer </h1>
 
         <label for="pseudo"><b>Email</b></label>
-        <input type="text" placeholder="Saisir l'email" name="pseudo" id="email" required>
+        <input type="email" placeholder="Saisir l'email" name="pseudo" id="email" required>
 
-        <label for="psw"><b>Mot de passe</b></label>
+        <label for="psw"><b>Mot de passe</b></label> <p style="font-size:0.75rem;">*doit contenir au moins 6 caractères</p>
         <input type="password" placeholder="Saisir le mot de passe" name="mdp" id="psw" required>
 
         <button type="submit" class="registerbtn">S'enregistrer</button>
@@ -43,7 +43,7 @@ body {
   background-color: white;
 }
 
-input[type=text], input[type=password] {
+input[type=email], input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -52,7 +52,7 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=email]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }

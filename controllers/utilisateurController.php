@@ -20,12 +20,14 @@ class UtilisateurController{
             include_once('models/utilisateurModel.php');
             $um = new UtilisateurModel();
             $find = $um->login($_POST['pseudo'],$_POST['mdp'] );  
-            if (isset($find)) {
+
+            if (isset($find) && !empty($find)) {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['pseudo'] = $_POST['pseudo']; 
                 $_SESSION['mdp'] = $_POST['mdp']; 
+            } else {
+                $_SESSION['loggedin'] = false;
             }
-            // TODO check if login success
 
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 // TODO redirect to main page after login successful
@@ -42,7 +44,7 @@ class UtilisateurController{
     public function creation() {  
         include_once('./views/user/creation.php');
 
-        if (isset($_POST['pseudo']) && $_POST['mdp'])
+        if (isset($_POST['pseudo']) && $_POST['mdp'] && strlen($_POST['mdp']) > 5)
         {
             include_once('models/utilisateurModel.php');
             $um = new UtilisateurModel();
