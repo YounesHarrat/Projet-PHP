@@ -27,9 +27,11 @@ class UtilisateurController{
                 $_SESSION['pseudo'] = $_POST['pseudo']; 
                 $_SESSION['mdp'] = $_POST['mdp']; 
                 $_SESSION['id'] = $user['id'];
+                $_SESSION['role'] = $user['fk_role'];
             } else {
                 $_SESSION['loggedin'] = false;
             }
+
 
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 // TODO redirect to main page after login successful

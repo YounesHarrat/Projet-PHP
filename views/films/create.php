@@ -2,6 +2,8 @@
 
 session_start();
 
+if ($_SESSION['role'] && $_SESSION['role'] != 1) {
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -92,3 +94,11 @@ session_start();
 
 
 </html>
+<?php
+} else {
+
+    header('Location: /index.php?controller=film&action=list');
+
+}
+
+?>
