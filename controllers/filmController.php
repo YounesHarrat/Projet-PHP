@@ -12,6 +12,7 @@ class FilmController {
     public function index() {
         include_once "./views/films/index.php";
         $this->list();
+        
     }
 
 
@@ -21,6 +22,8 @@ class FilmController {
 
     public function create() {
         include_once "./views/films/create.php";
+        echo "<br>";
+        $this->footer();
     }
 
     public function detail($argsArray) {
@@ -60,6 +63,8 @@ class FilmController {
         if (isset($numero) && $numero != ""){
             $this->addLike($numero);
         }
+        echo "<br>";
+        $this->footer();
     }
 
     public function addLike() {
