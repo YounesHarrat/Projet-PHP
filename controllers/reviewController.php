@@ -34,4 +34,16 @@ class ReviewController {
         include_once "./views/films/list.php";
     }
 
+    public function addLike() {
+        var_dump("eh");
+        $content = trim(file_get_contents("php://input"));
+        $data = json_decode($content, true);
+
+        $idReview = $data['id'];
+        $nbr = $data['nbr'];
+
+        $um = new ReviewModel();
+        $find = $um->addLike($idReview,$nbr); 
+    }
+
 }

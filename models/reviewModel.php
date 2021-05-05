@@ -23,4 +23,10 @@ class ReviewModel extends Db {
         $try = $find->fetchAll(PDO::FETCH_OBJ);
         return $try;
     }
+    public function addLike($idReview, $nbr){
+        $find = $this->db->prepare('INSERT INTO film.likereview (`likeReview`, `fk_reviews`) VALUES (?,?)');
+        $find->bindParam(1, $nbr);
+        $find->bindParam(2, $idReview);
+        $find->execute();
+    }
 }

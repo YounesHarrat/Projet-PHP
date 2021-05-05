@@ -70,11 +70,11 @@ session_start();
                     </a>
                     <!-- Likes -->
                     <div class="likes">
-                    <button type="button" onclick=onClick(1,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(2,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(3,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(4,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(5,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>                   
+                    <button type="button" onclick=onClickFilm(1,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
+                    <button type="button" onclick=onClickFilm(2,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
+                    <button type="button" onclick=onClickFilm(3,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
+                    <button type="button" onclick=onClickFilm(4,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
+                    <button type="button" onclick=onClickFilm(5,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>                   
                     </div>
                     
                 </div>

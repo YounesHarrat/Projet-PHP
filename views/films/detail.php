@@ -92,11 +92,11 @@ use App\Models\UtilisateurModel;
         <h5>L'utilisateur   
         <?= $user->login ?> 
             dit : <I>"<?=$r->review?>"</I>
-                    <button type="button" onclick=onClick(1,<?= $f->id ?>) class="btn btnStar"><i class="fas fa-star"></i></button>
-                    <button type="button" onclick=onClick(2,<?= $f->id ?>) class="btn btnStar"><i class="fas fa-star"></i></button>
-                    <button type="button" onclick=onClick(3,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(4,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(5,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button> 
+                    <button type="button" onclick=onClickReview(1,<?= $r->id ?>) class="btn btnStar"><i class="fas fa-star"></i></button>
+                    <button type="button" onclick=onClickReview(2,<?= $r->id ?>) class="btn btnStar"><i class="fas fa-star"></i></button>
+                    <button type="button" onclick=onClickReview(3,<?= $r->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
+                    <button type="button" onclick=onClickReview(4,<?= $r->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
+                    <button type="button" onclick=onClickReview(5,<?= $r->id ?>) class="btn btnStar"><i class="far fa-star"></i></button> 
         </h5>
     </div>
 
@@ -129,3 +129,5 @@ use App\Models\UtilisateurModel;
     </div>
     <!-- Copyright -->
   </footer>
+
+  <script type="text/javascript" src="./notation.js"></script>
