@@ -90,15 +90,15 @@ session_start();
                     <div class="stars">
                         <form action="">
                             <input type="hidden" id="modalIdFilm">
-                            <input onclick=onClick(5) class="star star-5" id="star-5" type="radio" name="star"/>
+                            <input onclick=onClickFilm(5) class="star star-5" id="star-5" type="radio" name="star"/>
                             <label class="star star-5" for="star-5"></label>
-                            <input onclick=onClick(4) class="star star-4" id="star-4" type="radio" name="star"/>
+                            <input onclick=onClickFilm(4) class="star star-4" id="star-4" type="radio" name="star"/>
                             <label class="star star-4" for="star-4"></label>
-                            <input onclick=onClick(3) class="star star-3" id="star-3" type="radio" name="star"/>
+                            <input onclick=onClickFilm(3) class="star star-3" id="star-3" type="radio" name="star"/>
                             <label class="star star-3" for="star-3"></label>
-                            <input onclick=onClick(2) class="star star-2" id="star-2" type="radio" name="star"/>
+                            <input onclick=onClickFilm(2) class="star star-2" id="star-2" type="radio" name="star"/>
                             <label class="star star-2" for="star-2"></label>
-                            <input onclick=onClick(1) class="star star-1" id="star-1" type="radio" name="star"/>
+                            <input onclick=onClickFilm(1) class="star star-1" id="star-1" type="radio" name="star"/>
                             <label class="star star-1" for="star-1"></label>
                         </form>
                     </div>
