@@ -24,6 +24,7 @@ class UtilisateurController{
                 $_SESSION['loggedin'] = true;
                 $_SESSION['pseudo'] = $_POST['pseudo']; 
                 $_SESSION['mdp'] = $_POST['mdp']; 
+                $_SESSION['role'] = array_shift($find)['fk_role'];
             }
             // TODO check if login success
 
