@@ -13,6 +13,9 @@ class MainController {
         $this->connexion();
     }
 
+    public function notFound(){
+        include_once "./views/404/404.php";
+    }
      # classe à appeler si on renseigne dans l'url  /filmList 
     public function create() {
         $fc = new FilmController();
