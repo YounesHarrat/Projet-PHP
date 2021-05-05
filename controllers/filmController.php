@@ -60,6 +60,17 @@ class FilmController {
         $um = new FilmModel();
         $find = $um->addLike($idFilm,$nbr);  
     }
+
+    public function averageLike() {
+        $content = trim(file_get_contents("php://input"));
+        $data = json_decode($content, true);
+        $idFilm = $data['id'];
+
+        $um = new FilmModel();
+        $find = $um->averageLikeFilm($idFilm);  
+        var_dump($find);
+        return $find;
+    }
 }
 
    

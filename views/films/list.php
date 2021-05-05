@@ -64,6 +64,7 @@ session_start();
                     <h5 class="card-title"><?=$f->nom?></h5>
                     <p class="card-text"><B>Date de sortie :</B> <?= $f->dateSortie ?></p>
                     <p class="card-text"><B>Acteurs :</B> <?= $f->acteurs ?></p>
+                    <p class="card-text"><B>Note :</B> <?= $f->notation ?>/5</p>
                     <!-- Route vers page info -->
                     <a href="/index.php?controller=film&action=detail&id=<?=$f->id?>">
                     <button type="button" class="btn btn-outline-secondary btnInfo">En savoir +</button>
@@ -74,7 +75,7 @@ session_start();
                     <button type="button" onclick=onClick(2,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
                     <button type="button" onclick=onClick(3,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
                     <button type="button" onclick=onClick(4,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(5,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>                   
+                    <button type="button" onclick=onClick(5,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
                     </div>
                     
                 </div>
@@ -101,5 +102,5 @@ session_start();
 
     </body>
 </html>
-<script type="text/javascript" src="./notation.js"></script>
+<script type="text/javascript" src="./javascript.js"></script>
 
