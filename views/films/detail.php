@@ -97,19 +97,19 @@ use App\Models\UtilisateurModel;
             <div class="stars">
                         <form action="">
                             <input type="hidden" id="modalIdFilm">
-                            <input onclick=onClickReview(1,<?= $r->id ?>) class="star star-5" id="star-5" type="radio" name="star"/>
+                            <input onclick=onClickReview(5,<?= $r->id ?>) class="star star-5" id="star-5" type="radio" name="star"/>
                             <label class="star star-5" for="star-5"></label>
-                            <input onclick=onClickReview(2,<?= $r->id ?>) class="star star-4" id="star-4" type="radio" name="star"/>
+                            <input onclick=onClickReview(4,<?= $r->id ?>) class="star star-4" id="star-4" type="radio" name="star"/>
                             <label class="star star-4" for="star-4"></label>
                             <input onclick=onClickReview(3,<?= $r->id ?>) class="star star-3" id="star-3" type="radio" name="star"/>
                             <label class="star star-3" for="star-3"></label>
-                            <input onclick=onClickReview(4,<?= $r->id ?>) class="star star-2" id="star-2" type="radio" name="star"/>
+                            <input onclick=onClickReview(2,<?= $r->id ?>) class="star star-2" id="star-2" type="radio" name="star"/>
                             <label class="star star-2" for="star-2"></label>
-                            <input onclick=onClickReview(5,<?= $r->id ?>)  class="star star-1" id="star-1" type="radio" name="star"/>
+                            <input onclick=onClickReview(1,<?= $r->id ?>)  class="star star-1" id="star-1" type="radio" name="star"/>
                             <label class="star star-1" for="star-1"></label>
                         </form>
-                        <p><?= $r->notation ?>/5</p>
                     </div>
+                    <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>
         </h5>
         
     </div>

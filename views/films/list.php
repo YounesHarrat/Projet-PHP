@@ -68,7 +68,7 @@ session_start();
                     <h5 class="card-title"><?=$f->nom?></h5>
                     <p class="card-text"><B>Date de sortie :</B> <?= $f->dateSortie ?></p>
                     <p class="card-text"><B>Acteurs :</B> <?= $f->acteurs ?></p>
-                    <p class="card-text"><B>Note du film :</B> /5 <i class="fas fa-star"></i></p>
+                    <p class="card-text"><B>Note du film :</B> <?= $f->notation ?>/5 <i class="fas fa-star"></i></p>
                     <!-- Route vers page info -->
                     <a href="/index.php?controller=film&action=detail&id=<?=$f->id?>">
                     <button type="button" class="btn btn-outline-secondary btnInfo">En savoir plus</button>
