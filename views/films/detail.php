@@ -2,6 +2,7 @@
 
 session_start();
 use App\Models\UtilisateurModel;
+use App\Models\ReviewModel;
 ?>
 <!DOCTYPE html>
 <html>
@@ -104,28 +105,12 @@ use App\Models\UtilisateurModel;
     }
     ?>
 
+
     
-    <form class="formReview" action="POST">        
-        <div class="input-group">
-        <h5 class="addReview">Ajouter un commentaire : </h5>
-        <textarea class="form-control review" aria-label="With textarea"></textarea>
-        </div>
-        <div class="d-grid gap-2">
-        <button type="button" class="btn btn-warning">Envoyer</button>
-        </div>
-    </form>
+
 
 </div>
 
 
 
 
-<!-- FOOTER -->
-<footer class="bg-dark text-center text-lg-start">
-    <!-- Copyright -->
-    <div class="text-center p-3 text-light">
-      © 2020 Copyright:
-      <a class="text-light" href="https://mdbootstrap.com/">Cinech'Nord.com</a>
-    </div>
-    <!-- Copyright -->
-  </footer>

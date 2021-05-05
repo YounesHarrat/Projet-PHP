@@ -23,4 +23,12 @@ class ReviewModel extends Db {
         $try = $find->fetchAll(PDO::FETCH_OBJ);
         return $try;
     }
+
+    public function saveOne($review, $userId, $filmId ){
+        $find = $this->db->prepare('INSERT INTO film.review (`review`, `fk_utilisateur`, `fk_film`) VALUES (?,?,?)');
+        $find->bindParam(1, $review);
+        $find->bindParam(2, $userId);
+        $find->bindParam(3, $filmId);
+        $find->execute();
+    }
 }

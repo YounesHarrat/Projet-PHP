@@ -14,6 +14,11 @@ class FilmController {
         $this->list();
     }
 
+
+    public function footer() {
+        include_once "./views/footer/footer.php";
+    }
+
     public function create() {
         include_once "./views/films/create.php";
     }
@@ -24,14 +29,21 @@ class FilmController {
         $id = array_shift($argsArray);
         if (isset($id)) {
             $tab_f = $films->findOne($id);
-            // $tab_r = $reviews->findAll();
-
             $tab_r = $reviews->findOne($id);
+            $review = "";
         } else {
             $tab_f = $films->findOne(1);
             // $tab_r = $reviews->findOne(1);
         }
         include_once "./views/films/detail.php";
+        $this->addReview($id);
+        echo "<br>";
+        $this->footer();
+    }
+
+    public function addReview($idFilm) {
+        $id = $idFilm;
+        include_once "./views/reviews/create.php";
     }
 
     public function one($argsArray) {

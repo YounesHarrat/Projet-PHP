@@ -19,11 +19,14 @@ class UtilisateurController{
         {
             include_once('models/utilisateurModel.php');
             $um = new UtilisateurModel();
-            $find = $um->login($_POST['pseudo'],$_POST['mdp'] );  
+            $find = $um->login($_POST['pseudo'],$_POST['mdp'] ); 
+            $user = array_shift($find); 
+
             if (isset($find)) {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['pseudo'] = $_POST['pseudo']; 
                 $_SESSION['mdp'] = $_POST['mdp']; 
+                $_SESSION['id'] = $user['id'];
             }
             // TODO check if login success
 
