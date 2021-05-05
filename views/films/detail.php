@@ -2,6 +2,7 @@
 
 session_start();
 use App\Models\UtilisateurModel;
+use App\Models\ReviewModel;
 ?>
 <!DOCTYPE html>
 <html>
@@ -133,15 +134,7 @@ use App\Models\UtilisateurModel;
             </div>
             </div>
     
-    <form class="formReview" action="POST">        
-        <div class="input-group">
-        <h5 class="addReview">Ajouter un commentaire : </h5>
-        <textarea class="form-control review" aria-label="With textarea"></textarea>
-        </div>
-        <div class="d-grid gap-2">
-        <button type="button" class="btn btn-warning">Envoyer</button>
-        </div>
-    </form>
+
 
 </div>
 

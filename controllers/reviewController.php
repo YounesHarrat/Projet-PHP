@@ -16,26 +16,26 @@ class ReviewController {
     }
 
     public function one($argsArray) {
-        $films = new ReviewModel();
-        $tab_f = $films->findOne(array_shift($argsArray));
+        $review = new ReviewModel();
+        $tab_f = $review->findOne(array_shift($argsArray));
         include_once "./views/films/list.php";
     }
 
     # classe à appeler si on renseigne dans l'url  /filmList 
     public function list() {
-        $films = new ReviewModel();
-        $tab_f = $films->findAll();
+        $review = new ReviewModel();
+        $tab_f = $review->findAll();
         include_once "./views/films/list.php";
     }
 
     public function listReview() {
-        $films = new ReviewModel();
-        $tab_r = $films->findReviewByFilm();
+        $review = new ReviewModel();
+        $tab_r = $review->findOne();
         include_once "./views/films/list.php";
     }
 
     public function addLike() {
-        var_dump("eh");
+
         $content = trim(file_get_contents("php://input"));
         $data = json_decode($content, true);
 
@@ -44,6 +44,15 @@ class ReviewController {
 
         $um = new ReviewModel();
         $find = $um->addLike($idReview,$nbr); 
+    }
+
+    public function saveReview($argsArray) {
+        $review = new ReviewModel();
+        $r = array_shift($argsArray);
+        $fkUser = array_shift($argsArray);
+        $fkFilm = array_shift($argsArray);
+        $tab_r = $review->saveOne($r, $fkUser, $fkFilm);
+        include_once "./views/films/detail.php";
     }
 
 }

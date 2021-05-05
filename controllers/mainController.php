@@ -28,6 +28,7 @@ class MainController {
     public function detail() {
         $fc = new FilmController();
         $fc->detail();
+        $this->footer();
     }
 
     # classe à appeler si on renseigne dans l'url  /filmList 
@@ -44,4 +45,10 @@ class MainController {
         $uc = new UtilisateurController();
         $uc->creation();
     }
+
+    public function addReview() {
+        $rc = new ReviewController();
+        $rc->saveReview();
+    }
+
 }
