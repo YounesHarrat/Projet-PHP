@@ -42,6 +42,12 @@ body {
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
+    
+  }
+
+  .registerbtn>a {
+    text-decoration: none;
+    color: white;
   }
   
   .registerbtn:hover {
