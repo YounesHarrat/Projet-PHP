@@ -6,11 +6,15 @@ use App\Models\Model;
 use App\Controllers\FilmController;
 use App\Controllers\UtilisateurController;
 
+session_start();
+
 class MainController {
 
     # classe à appeler si on ne renseigne pas de paramètre dans l'url
     public function index() {
-        $this->connexion();
+        // TODO visiteur arrive, sur la liste de film
+        $this->list();
+
     }
 
      # classe à appeler si on renseigne dans l'url  /filmList 

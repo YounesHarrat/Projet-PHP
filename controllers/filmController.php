@@ -38,7 +38,7 @@ class FilmController {
             // $tab_r = $reviews->findOne(1);
         }
         include_once "./views/films/detail.php";
-        $this->addReview($id);
+        // $this->addReview($id);
         echo "<br>";
         $this->footer();
     }

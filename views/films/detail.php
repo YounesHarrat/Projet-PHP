@@ -29,13 +29,20 @@ use App\Models\ReviewModel;
     </div>
     
 <?php
+
+function Deconnexion() {
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        $_SESSION = array();
+    }
+}
+
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo "<b style='color:white;padding:30px;'>Welcome to the member's area, " . $_SESSION['pseudo'] . "!</b>";
+                echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . " !</b>";
 
                 // TODO redirect to login page after deconnexion successful
                 echo "
-                <a href='/index.php?controller=utilisateur&action=connexion'>
-                <button type='button' class='btn btn-outline-danger btnConnexion'>Se Deconnecter</button>
+                <a href='/index.php?controller=film&action=list'>
+                <button type='button' class='btn btn-outline-danger btnConnexion' onclick=Deconnexion() >Se Deconnecter</button>
                 </a>
                 ";
                 // header('Location: /index.php?controller=film&action=list');
@@ -130,10 +137,36 @@ use App\Models\ReviewModel;
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <?php            
+        function save($id ) {
+            $rm = new ReviewModel();
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                $fkUser = $_SESSION['id'];
+            }
+            $fkFilm = $id;
+            if (isset($_POST['review']) && $_POST['review'] != "" ){
+                $reviewText = $_POST['review']; 
+                $rm->saveOne($reviewText,$fkUser, $fkFilm);
+            }
+        }
+            
+        ?>
+
+            <form class="formReview" action="" method="POST">        
+                <div class="input-group">
+                    <h5 class="addReview">Ajouter un commentaire : </h5>
+                    <textarea class="form-control" name="review" placeholder="Donnez nous votre avis">
+                    
+                    </textarea>
                 </div>
-            </div>
-            </div>
-    
+                <div class="d-grid gap-2">
+
+                <button type="sumbit" class="btn btn-warning" onclick=<?php save($id) ?> >Envoyer</button>
+                </div>
+            </form>
 
 
 </div>

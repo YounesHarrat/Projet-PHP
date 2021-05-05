@@ -4,13 +4,12 @@
 namespace App\Controllers;
 
 
-session_start();
+
 use App\Models\UtilisateurModel;
 
 class UtilisateurController{
 
     public function index() {
-        echo "aaaaaaaaaa";
     }
     
     public function connexion() {
@@ -29,9 +28,13 @@ class UtilisateurController{
                 $_SESSION['mdp'] = $_POST['mdp']; 
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['role'] = $user['fk_role'];
+
+                $_POST['pseudo'] = "";
+                $_POST['mdp'] = "";
             } else {
                 $_SESSION['loggedin'] = false;
             }
+
 
 
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
