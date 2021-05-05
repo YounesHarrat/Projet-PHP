@@ -1,8 +1,4 @@
-<?php
 
-session_start();
-
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,25 +25,33 @@ session_start();
     </div>
     
 <?php
-    function Deconnexion() {
-            $_SESSION['loggedin'] = false;
+    function Connexion() {
+        session_start();
+        $_SESSION['loggedin'] = true;
     }
-            echo $_SESSION['loggedin'];
+
+    function Deconnexion() {
+        session_destroy();
+        $_SESSION['loggedin'] = false;
+    }
+
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                var_dump($_SESSION);
                 echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . " !</b>";
 
                 // TODO redirect to login page after deconnexion successful
                 echo "
                 <a href='/index.php?controller=film&action=list'>
-                <button type='submit' class='btn btn-outline-danger btnConnexion' onclick=Deconnexion() >Se Deconnecter</button>
+                <button type='submit' class='btn btn-outline-danger btnConnexion' onclick='Deconnexion()'>Se Deconnecter</button>
                 </a>
                 ";
                 // header('Location: /index.php?controller=film&action=list');
 
             } else {
+                
                 echo "
                 <a href='/index.php?controller=utilisateur&action=connexion'>
-                <button type='button' class='btn btn-outline-success btnConnexion'>Se connecter</button>
+                <button type='button' class='btn btn-outline-success btnConnexion' onclick='Connexion()'>Se connecter</button>
                 </a>
                 ";
             }
