@@ -10,7 +10,7 @@ class FilmModel extends Db {
         # on instancie le singleton
         $this->db = Db::getInstance();
     }
-
+    
     # méthode permettant de récupérer l'entièreté des users
     public function findAll() {
         $find = $this->db->query('SELECT film.*, ROUND(AVG(CAST(likefilm.likes AS FLOAT)), 1) AS notation FROM `film` LEFT JOIN likefilm ON film.id=likefilm.fk_films GROUP BY film.nom ORDER BY `notation` DESC');
