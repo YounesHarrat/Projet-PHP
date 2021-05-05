@@ -97,7 +97,9 @@ use App\Models\UtilisateurModel;
                     <button type="button" onclick=onClickReview(3,<?= $r->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
                     <button type="button" onclick=onClickReview(4,<?= $r->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
                     <button type="button" onclick=onClickReview(5,<?= $r->id ?>) class="btn btnStar"><i class="far fa-star"></i></button> 
+                    <p><?= $r->notation ?>/5</p>      
         </h5>
+        
     </div>
 
     <?php
