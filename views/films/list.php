@@ -30,7 +30,7 @@ session_start();
     
 <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo "<b style='color:white;padding:30px;'>Welcome to the member's area, " . $_SESSION['pseudo'] . "!</b>";
+                echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . " !</b>";
 
                 // TODO redirect to login page after deconnexion successful
                 echo "
