@@ -19,10 +19,11 @@ class ReviewModel extends Db {
     }
     # méthode permettant de récupérer un user en particulier via son $id
     public function findOne($id) {
-        $find = $this->db->query('SELECT review.*, ROUND(AVG(CAST(likereview.likeReview AS FLOAT)), 1) AS notation FROM `review`LEFT JOIN likereview ON review.id=likereview.fk_reviews WHERE fk_film = 2  GROUP BY review.review ORDER BY `notation` DESC ');
+        $find = $this->db->prepare('SELECT review.*, ROUND(AVG(CAST(likereview.likeReview AS FLOAT)), 1) AS notation FROM `review`LEFT JOIN likereview ON review.id=likereview.fk_reviews WHERE fk_film = ?  GROUP BY review.review ORDER BY `notation` DESC ');
+        $find->execute(array($id));
         $try = $find->fetchAll(PDO::FETCH_OBJ);
         return $try;
-    }
+    }   
     public function addLike($idReview, $nbr){
         $find = $this->db->prepare('INSERT INTO film.likereview (`likeReview`, `fk_reviews`) VALUES (?,?)');
         $find->bindParam(1, $nbr);
