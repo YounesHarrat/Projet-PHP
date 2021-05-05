@@ -8,7 +8,9 @@ use App\Models\UtilisateurModel;
     <head>
         <meta charset="UTF-8">
         <title>Liste des Films</title>
+        <link rel="icon" type="image/png" href="assets/logo.png" />
         <link rel='stylesheet' type='text/css' href='style\header.css'>
+        <link rel='stylesheet' type='text/css' href='style\stars.css'>
         <link rel='stylesheet' type='text/css' href='style\details.css'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/9d71c70935.js" crossorigin="anonymous"></script>
@@ -92,11 +94,21 @@ use App\Models\UtilisateurModel;
         <h5>L'utilisateur   
         <?= $user->login ?> 
             dit : <I>"<?=$r->review?>"</I>
-                    <button type="button" onclick=onClick(1,<?= $f->id ?>) class="btn btnStar"><i class="fas fa-star"></i></button>
-                    <button type="button" onclick=onClick(2,<?= $f->id ?>) class="btn btnStar"><i class="fas fa-star"></i></button>
-                    <button type="button" onclick=onClick(3,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(4,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(5,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button> 
+            <div class="stars">
+                        <form action="">
+                            <input type="hidden" id="modalIdFilm">
+                            <input class="star star-5" id="star-5" type="radio" name="star"/>
+                            <label class="star star-5" for="star-5"></label>
+                            <input class="star star-4" id="star-4" type="radio" name="star"/>
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-3" id="star-3" type="radio" name="star"/>
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-2" id="star-2" type="radio" name="star"/>
+                            <label class="star star-2" for="star-2"></label>
+                            <input  class="star star-1" id="star-1" type="radio" name="star"/>
+                            <label class="star star-1" for="star-1"></label>
+                        </form>
+                    </div>
         </h5>
     </div>
 

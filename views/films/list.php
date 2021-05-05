@@ -8,7 +8,11 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <title>Liste des Films</title>
+        <link rel="icon" type="image/png" href="assets/logo.png" />
         <link rel='stylesheet' type='text/css' href='style\header.css'>
+        <link rel='stylesheet' type='text/css' href='style\stars.css'>
+        <link rel='stylesheet' type='text/css' href='style\list.css'>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/9d71c70935.js" crossorigin="anonymous"></script>
     </head>
@@ -64,27 +68,55 @@ session_start();
                     <h5 class="card-title"><?=$f->nom?></h5>
                     <p class="card-text"><B>Date de sortie :</B> <?= $f->dateSortie ?></p>
                     <p class="card-text"><B>Acteurs :</B> <?= $f->acteurs ?></p>
+                    <p class="card-text"><B>Note du film :</B> /5 <i class="fas fa-star"></i></p>
                     <!-- Route vers page info -->
                     <a href="/index.php?controller=film&action=detail&id=<?=$f->id?>">
-                    <button type="button" class="btn btn-outline-secondary btnInfo">En savoir +</button>
+                    <button type="button" class="btn btn-outline-secondary btnInfo">En savoir plus</button>
                     </a>
-                    <!-- Likes -->
-                    <div class="likes">
-                    <button type="button" onclick=onClick(1,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(2,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(3,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(4,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>
-                    <button type="button" onclick=onClick(5,<?= $f->id ?>) class="btn btnStar"><i class="far fa-star"></i></button>                   
-                    </div>
-                    
-                </div>
-                </div>
 
+                    <!-- Button trigger modal -->
+                        <button type="button" onclick=recuperation(<?=$f->id?>) class="btn btn-outline-warning mt-2 btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Noter ce film
+                        </button>
+                                    <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Likes -->
+                    <div class="stars">
+                        <form action="">
+                            <input type="hidden" id="modalIdFilm">
+                            <input onclick=onClick(5) class="star star-5" id="star-5" type="radio" name="star"/>
+                            <label class="star star-5" for="star-5"></label>
+                            <input onclick=onClick(4) class="star star-4" id="star-4" type="radio" name="star"/>
+                            <label class="star star-4" for="star-4"></label>
+                            <input onclick=onClick(3) class="star star-3" id="star-3" type="radio" name="star"/>
+                            <label class="star star-3" for="star-3"></label>
+                            <input onclick=onClick(2) class="star star-2" id="star-2" type="radio" name="star"/>
+                            <label class="star star-2" for="star-2"></label>
+                            <input onclick=onClick(1) class="star star-1" id="star-1" type="radio" name="star"/>
+                            <label class="star star-1" for="star-1"></label>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
+        
            <?php
             }
             ?>
+
+
+
         </div>
         </div>
 
@@ -101,5 +133,8 @@ session_start();
 
     </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 <script type="text/javascript" src="./notation.js"></script>
+<script type="text/javascript" src="./star.js"></script>
+
 

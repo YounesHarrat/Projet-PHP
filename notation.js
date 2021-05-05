@@ -1,4 +1,6 @@
-function onClick(nbr, id){
+let ida;
+
+function onClick(nbr, id=ida){
     (async () => {
         const rawResponse = await fetch('http://localhost:8000/index.php?controller=film&action=addLike', {
           method: 'POST',
@@ -6,7 +8,16 @@ function onClick(nbr, id){
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body:JSON.stringify({nbr : nbr, id: id})
-        });
+          body:JSON.stringify({nbr : nbr, id: id})          
+        }).then(resp=>location.reload());
       })();
+}
+
+
+
+
+function recuperation(id) {
+    ida = id;
+    document.querySelector("#modalIdFilm").value = ida;
+    console.log(ida);
 }
