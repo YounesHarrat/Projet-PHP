@@ -75,7 +75,7 @@ session_start();
                     </a>
 
                     <!-- Button trigger modal -->
-                        <button type="button" onclick=recuperation(<?=$f->id?>) class="btn btn-outline-warning mt-2 btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" onclick=recuperationFilm(<?=$f->id?>) class="btn btn-outline-warning mt-2 btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Noter ce film
                         </button>
                                     <!-- Modal -->

@@ -2,7 +2,9 @@
     <head>
         <title>Inscription</title>
         <link rel="icon" type="image/png" href="assets/logo.png" />
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />         
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />   
+        <link rel='stylesheet' type='text/css' href='style\login.css'>         
+      
     </head>
          
     <body>

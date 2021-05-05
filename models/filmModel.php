@@ -15,6 +15,10 @@ class FilmModel extends Db {
     public function findAll() {
         $find = $this->db->query('SELECT film.*, ROUND(AVG(CAST(likefilm.likes AS FLOAT)), 1) AS notation FROM `film` LEFT JOIN likefilm ON film.id=likefilm.fk_films GROUP BY film.nom ORDER BY `notation` DESC');
         $find = $find->fetchAll(PDO::FETCH_OBJ);
+        for($i=0; $i<count($find); $i++){
+            $date = $find[$i]->dateSortie;
+            $find[$i]->dateSortie= date("d-m-Y", strtotime($date));      
+        }
         return $find;
     }
     # méthode permettant de récupérer un user en particulier via son $id

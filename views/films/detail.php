@@ -93,22 +93,10 @@ use App\Models\UtilisateurModel;
     <div style="padding:30px;">
         <h5>L'utilisateur   
         <?= $user->login ?> 
-            dit : <I>"<?=$r->review?>"</I>
-            <div class="stars">
-                        <form action="">
-                            <input type="hidden" id="modalIdFilm">
-                            <input onclick=onClickReview(5,<?= $r->id ?>) class="star star-5" id="star-5" type="radio" name="star"/>
-                            <label class="star star-5" for="star-5"></label>
-                            <input onclick=onClickReview(4,<?= $r->id ?>) class="star star-4" id="star-4" type="radio" name="star"/>
-                            <label class="star star-4" for="star-4"></label>
-                            <input onclick=onClickReview(3,<?= $r->id ?>) class="star star-3" id="star-3" type="radio" name="star"/>
-                            <label class="star star-3" for="star-3"></label>
-                            <input onclick=onClickReview(2,<?= $r->id ?>) class="star star-2" id="star-2" type="radio" name="star"/>
-                            <label class="star star-2" for="star-2"></label>
-                            <input onclick=onClickReview(1,<?= $r->id ?>)  class="star star-1" id="star-1" type="radio" name="star"/>
-                            <label class="star star-1" for="star-1"></label>
-                        </form>
-                    </div>
+            dit : <I>"<?=$r->review?>"</I><br>
+            <button type="button" onclick=recuperationReview(<?=$r->id?>) class="btn btn-outline-warning btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModalReview">
+                        Noter ce commentaire
+                        </button>
                     <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>
         </h5>
         
@@ -117,7 +105,33 @@ use App\Models\UtilisateurModel;
     <?php
     }
     ?>
-
+    <div class="modal fade" id="exampleModalReview" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Likes -->
+                    <div class="stars">
+                        <form action="">
+                            <input type="hidden" id="modalIdReview">
+                            <input onclick=onClickReview(5) class="star star-5" id="star-5" type="radio" name="star"/>
+                            <label class="star star-5" for="star-5"></label>
+                            <input onclick=onClickReview(4) class="star star-4" id="star-4" type="radio" name="star"/>
+                            <label class="star star-4" for="star-4"></label>
+                            <input onclick=onClickReview(3) class="star star-3" id="star-3" type="radio" name="star"/>
+                            <label class="star star-3" for="star-3"></label>
+                            <input onclick=onClickReview(2) class="star star-2" id="star-2" type="radio" name="star"/>
+                            <label class="star star-2" for="star-2"></label>
+                            <input onclick=onClickReview(1) class="star star-1" id="star-1" type="radio" name="star"/>
+                            <label class="star star-1" for="star-1"></label>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
     
     <form class="formReview" action="POST">        
         <div class="input-group">
@@ -143,5 +157,6 @@ use App\Models\UtilisateurModel;
     </div>
     <!-- Copyright -->
   </footer>
-
-  <script type="text/javascript" src="./notation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./javascript.js"></script>
+  <script type="text/javascript" src="./star.js"></script>
