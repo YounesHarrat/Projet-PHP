@@ -11,6 +11,7 @@ class FilmController {
     # classe à appeler si on ne renseigne pas de paramètre dans l'url
     public function index() {
         $this->list();
+        
     }
 
 
@@ -20,6 +21,8 @@ class FilmController {
 
     public function create() {
         include_once "./views/films/create.php";
+        echo "<br>";
+        $this->footer();
     }
 
     public function detail($argsArray) {
@@ -59,6 +62,8 @@ class FilmController {
         if (isset($numero) && $numero != ""){
             $this->addLike($numero);
         }
+        echo "<br>";
+        $this->footer();
     }
 
     public function addLike() {

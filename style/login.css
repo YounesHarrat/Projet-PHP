@@ -58,3 +58,13 @@ body {
     background-color: #f1f1f1;
     text-align: center;
   }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .spacer {
+    
+  }

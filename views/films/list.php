@@ -121,16 +121,6 @@ session_start();
         </div>
 
 
-<!-- FOOTER -->
-        <footer class="bg-dark text-center text-lg-start">
-    <!-- Copyright -->
-    <div class="text-center p-3 text-light">
-      © 2020 Copyright:
-      <a class="text-light" href="https://mdbootstrap.com/">Cinech'Nord.com</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-
     </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
