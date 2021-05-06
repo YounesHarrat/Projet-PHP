@@ -30,6 +30,13 @@ class UtilisateurModel extends Db {
         $result = $find->fetchAll();
         return $result;
     }
+    public function recupMDP($login){
+        $find = $this->db-> prepare('SELECT password FROM film.utilisateur WHERE login = ?');
+        $find->execute(array($login));
+        $result = $find->fetchAll();
+        return $result[0]["password"];
+    }
+
     public function register($email, $pseudo, $mdp){
         $find = $this->db->prepare('INSERT INTO film.utilisateur (`login`, `password`, `pseudo`, `fk_role`) VALUES (?,?,?,1)');
         $find->bindParam(1, $email);
