@@ -84,6 +84,7 @@ class UtilisateurController{
 
     public function deconnexion() {
         session_destroy();  
+        // renvoie vers la page qui était consulté avant de s'etre déconnecté
         header('Location: '. $_SERVER['HTTP_REFERER']);
     }
     

@@ -26,9 +26,6 @@
     </div>
     
 <?php
-    function Connexion() {
-        $_SESSION['loggedin'] = true;
-    }
 
 
 
@@ -48,7 +45,7 @@
                 
                 echo "
                 <a href='/index.php?controller=utilisateur&action=connexion'>
-                <button type='button' class='btn btn-outline-success btnConnexion' onclick='Connexion()'>Se connecter</button>
+                <button type='button' class='btn btn-outline-success btnConnexion'>Se connecter</button>
                 </a>
                 ";
             }
