@@ -30,10 +30,11 @@ class UtilisateurModel extends Db {
         $result = $find->fetchAll();
         return $result;
     }
-    public function register($login, $mdp){
-        $find = $this->db->prepare('INSERT INTO film.utilisateur (`login`, `password`, `fk_role`) VALUES (?,?,1)');
-        $find->bindParam(1, $login);
+    public function register($email, $pseudo, $mdp){
+        $find = $this->db->prepare('INSERT INTO film.utilisateur (`login`, `password`, `pseudo`, `fk_role`) VALUES (?,?,?,1)');
+        $find->bindParam(1, $email);
         $find->bindParam(2, $mdp);
+        $find->bindParam(3, $pseudo);
         $find->execute();
     }
 }

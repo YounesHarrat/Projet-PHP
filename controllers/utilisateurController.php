@@ -15,21 +15,23 @@ class UtilisateurController{
     public function connexion() {
         include_once('./views/user/connexion.php');
 
-        if (isset($_POST['pseudo']) && $_POST['mdp'])
+        if (isset($_POST['email']) && $_POST['mdp'])
         {
+            var_dump("ah");
             include_once('models/utilisateurModel.php');
             $um = new UtilisateurModel();
-            $find = $um->login($_POST['pseudo'],$_POST['mdp'] );  
+            $find = $um->login($_POST['email'],$_POST['mdp']);  
             
             if (isset($find) && !empty($find)) {
                 $user = array_shift($find);
                 $_SESSION['loggedin'] = true;
-                $_SESSION['pseudo'] = $_POST['pseudo']; 
+                $_SESSION['email'] = $_POST['email'];                 
                 $_SESSION['mdp'] = $_POST['mdp']; 
+                $_SESSION['pseudo'] = $_POST['pseudo']; 
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['role'] = $user['fk_role'];
 
-                $_POST['pseudo'] = "";
+                $_POST['email'] = "";
                 $_POST['mdp'] = "";
             } else {
                 $_SESSION['loggedin'] = false;
@@ -51,11 +53,11 @@ class UtilisateurController{
     public function creation() {  
         include_once('./views/user/creation.php');
 
-        if (isset($_POST['pseudo']) && $_POST['mdp'] && strlen($_POST['mdp']) > 5)
+        if (isset($_POST['email']) && $_POST['pseudo'] && strlen($_POST['mdp']) > 5)
         {
             include_once('models/utilisateurModel.php');
             $um = new UtilisateurModel();
-            $find = $um->register($_POST['pseudo'],$_POST['mdp'] );  
+            $find = $um->register($_POST['email'],$_POST['pseudo'],$_POST['mdp'] );  
         }
-    }
+    }   
 }
