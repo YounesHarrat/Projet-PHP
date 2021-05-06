@@ -102,22 +102,20 @@ use App\Models\ReviewModel;
         <?= $user->login ?> 
             dit : <I>"<?=$r->review?>"</I><br>
             <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>
+            <?php
+            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                ?>
             <button type="button" onclick=recuperationReview(<?=$r->id?>) class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalReview">
                         Noter ce commentaire
             </button>
+            <?php
+            }
+            ?>
             <button type="button" onclick=recuperationReviewUpdate(<?=$r->id?>) class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalReviewUpdate">
                         Modifier le commentaire
             </button>            
         </h5>        
-            <?php
-            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                ?>
-            <button type="button" onclick=recuperationReview(<?=$r->id?>) class="btn btn-outline-warning btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModalReview">
-                        Noter ce commentaire
-                        </button>
-            <?php
-            }
-            ?>
+
                     <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>
         </h5>
         
@@ -199,6 +197,7 @@ use App\Models\ReviewModel;
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
+                <h5 class="modal-title">Modifier le commentaire</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
