@@ -6,6 +6,7 @@ require_once 'autoloader.php';
 
 # on appel notre autoloader
 Autoloader::register();
+session_start();
 
 /**
  * On instancie notre routeur

@@ -23,14 +23,14 @@ class UtilisateurController{
             
             if (isset($find) && !empty($find)) {
                 $user = array_shift($find);
+                session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['pseudo'] = $_POST['pseudo']; 
                 $_SESSION['mdp'] = $_POST['mdp']; 
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['role'] = $user['fk_role'];
 
-                $_POST['pseudo'] = "";
-                $_POST['mdp'] = "";
+
             } else {
                 $_SESSION['loggedin'] = false;
             }
@@ -39,6 +39,7 @@ class UtilisateurController{
 
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 // TODO redirect to main page after login successful
+                
                 header('Location: /index.php?controller=film&action=list');
             } else {
                 echo "Please log in first to see this page.";
@@ -58,4 +59,11 @@ class UtilisateurController{
             $find = $um->register($_POST['pseudo'],$_POST['mdp'] );  
         }
     }
+
+
+    public function deconnexion() {
+        session_destroy();  
+        header('Location: '. $_SERVER['HTTP_REFERER']);
+    }
+    
 }
