@@ -28,6 +28,7 @@ class UtilisateurModel extends Db {
         $find = $this->db-> prepare('SELECT * FROM film.utilisateur WHERE login = ? and password = ?');
         $find->execute(array($login, $mdp));
         $result = $find->fetchAll();
+        var_dump($result);
         return $result;
     }
     public function register($email, $pseudo, $mdp){

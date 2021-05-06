@@ -9,6 +9,8 @@ use App\Models\UtilisateurModel;
 
 class UtilisateurController{
 
+    public $currentPseudo;
+
     public function index() {
     }
     
@@ -17,18 +19,17 @@ class UtilisateurController{
 
         if (isset($_POST['email']) && $_POST['mdp'])
         {
-            var_dump("ah");
             include_once('models/utilisateurModel.php');
             $um = new UtilisateurModel();
             $find = $um->login($_POST['email'],$_POST['mdp']);  
-            
+
             if (isset($find) && !empty($find)) {
                 $user = array_shift($find);
                 session_start();
                 $_SESSION['loggedin'] = true;
-                $_SESSION['email'] = $_POST['email'];                 
-                $_SESSION['mdp'] = $_POST['mdp']; 
-                $_SESSION['pseudo'] = $_POST['pseudo']; 
+                $_SESSION['email'] = $user['email'];                 
+                $_SESSION['mdp'] = $user['mdp']; 
+                $_SESSION['pseudo'] = $user['pseudo'];
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['role'] = $user['fk_role'];
 
@@ -60,7 +61,10 @@ class UtilisateurController{
             include_once('models/utilisateurModel.php');
             $um = new UtilisateurModel();
             $find = $um->register($_POST['email'],$_POST['pseudo'],$_POST['mdp'] );  
+            header('Location: /index.php?controller=utilisateur&action=connexion');
         }
+
+        
     }
 
 
