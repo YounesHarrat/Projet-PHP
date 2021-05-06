@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,25 +27,22 @@
     
 <?php
     function Connexion() {
-        session_start();
         $_SESSION['loggedin'] = true;
     }
 
-    function Deconnexion() {
-        session_destroy();
-        $_SESSION['loggedin'] = false;
-    }
+
 
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                var_dump($_SESSION);
                 echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . " !</b>";
 
                 // TODO redirect to login page after deconnexion successful
-                echo "
-                <a href='/index.php?controller=film&action=list'>
-                <button type='submit' class='btn btn-outline-danger btnConnexion' onclick='Deconnexion()'>Se Deconnecter</button>
+                ?>
+                <a href="index.php?controller=utilisateur&action=deconnexion">
+                <button type='submit' class='btn btn-outline-danger btnConnexion'>Se Deconnecter</button>
                 </a>
-                ";
+                
+              <?php
+                
                 // header('Location: /index.php?controller=film&action=list');
 
             } else {
@@ -83,9 +81,12 @@
                     </a>
 
                     <!-- Button trigger modal -->
+
                         <button type="button" onclick=recuperationFilm(<?=$f->id?>) class="btn btn-outline-warning mt-2 btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Noter ce film
                         </button>
+
+
                                     <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

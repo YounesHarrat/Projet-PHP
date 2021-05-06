@@ -6,7 +6,7 @@ use App\Models\Model;
 use App\Controllers\FilmController;
 use App\Controllers\UtilisateurController;
 
-session_start();
+
 
 class MainController {
 

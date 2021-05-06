@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 use App\Models\UtilisateurModel;
 use App\Models\ReviewModel;
 ?>
@@ -40,12 +39,12 @@ function Deconnexion() {
                 echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . " !</b>";
 
                 // TODO redirect to login page after deconnexion successful
-                echo "
-                <a href='/index.php?controller=film&action=list'>
-                <button type='button' class='btn btn-outline-danger btnConnexion' onclick=Deconnexion() >Se Deconnecter</button>
+                ?>
+                <a href="index.php?controller=utilisateur&action=deconnexion">
+                <button type='submit' class='btn btn-outline-danger btnConnexion'>Se Deconnecter</button>
                 </a>
-                ";
-                // header('Location: /index.php?controller=film&action=list');
+                
+                <?php
 
             } else {
                 echo "
