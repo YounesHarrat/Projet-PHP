@@ -29,11 +29,6 @@ use App\Models\ReviewModel;
     
 <?php
 
-function Deconnexion() {
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        $_SESSION = array();
-    }
-}
 
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . " !</b>";
@@ -158,9 +153,11 @@ function Deconnexion() {
                 $rm->saveOne($reviewText,$fkUser, $fkFilm);
             }
         }
-            
+        
+        
+        
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         ?>
-
             <form class="formReview" action="" method="POST">        
                 <div class="input-group">
                     <h5 class="addReview">Ajouter un commentaire : </h5>
@@ -173,7 +170,9 @@ function Deconnexion() {
                 <button type="sumbit" class="btn btn-warning" onclick=<?php save($id) ?> >Envoyer</button>
                 </div>
             </form>
-
+        <?php
+        }
+        ?>    
 
 </div>
 
