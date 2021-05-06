@@ -18,9 +18,10 @@
         <label for="psw"><b>Mot de passe</b></label> <p style="font-size:0.75rem;">*doit contenir au moins 6 caractères</p>
         <input type="password" placeholder="Saisir le mot de passe" name="mdp" id="psw" required>
 
-        <button type="submit" class="registerbtn"  > 
-            <a href="index.php?controller=utilisateur&action=connexion" name="clickEnregistrer" >S'enregistrer</a></button>
-            
+        <a href="index.php?controller=utilisateur&action=connexion" name="clickEnregistrer" >
+            <button type="submit" class="registerbtn"  > 
+            S'enregistrer</button>
+        </a>
         <div class="container signin">
     <p>Vous avez déjà un compte? <a href="index.php?controller=utilisateur&action=connexion">Se connecter</a>.</p>
     </div>
