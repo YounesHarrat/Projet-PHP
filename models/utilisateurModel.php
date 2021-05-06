@@ -34,7 +34,11 @@ class UtilisateurModel extends Db {
         $find = $this->db-> prepare('SELECT password FROM film.utilisateur WHERE login = ?');
         $find->execute(array($login));
         $result = $find->fetchAll();
-        return $result[0]["password"];
+        if (isset($result)) {
+            return $result[0]["password"];
+        } else {
+            return $result;
+        }
     }
 
     public function verifDoubleMail($login){

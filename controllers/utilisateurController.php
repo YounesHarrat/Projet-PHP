@@ -23,40 +23,40 @@ class UtilisateurController{
             $um = new UtilisateurModel();
             $mdpH = $um->recupMDP($_POST['email']);
             $mdpNH = $_POST['mdp'];
-            if(hash_equals($mdpH, crypt($mdpNH, $mdpH))){
-                var_dump(hash_equals($mdpH, crypt($mdpNH, $mdpH)));
+            if(hash_equals($mdpH, crypt($mdpNH, '$1$rasmusle$'))){
                 $find = $um->login($_POST['email'],$mdpH);  
+
                 if (isset($find) && !empty($find)) {
                     $user = array_shift($find);
                     session_start();
                     $_SESSION['loggedin'] = true;
-                    $_SESSION['email'] = $_POST['email'];                 
-                    $_SESSION['mdp'] = $_POST['mdp']; 
-                    $_SESSION['pseudo'] = $_POST['pseudo']; 
+                    $_SESSION['email'] = $user['email'];                 
+                    $_SESSION['mdp'] = $user['mdp']; 
+                    $_SESSION['pseudo'] = $user['pseudo'];
                     $_SESSION['id'] = $user['id'];
                     $_SESSION['role'] = $user['fk_role'];
-    
+
                     $_POST['email'] = "";
                     $_POST['mdp'] = "";
                 } else {
                     $_SESSION['loggedin'] = false;
                 }
-    
-    
-    
+            
+
+
                 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     // TODO redirect to main page after login successful
-                    
-                    header('Location: /index.php?controller=film&action=list');
+
+                        header('Location: /index.php?controller=film&action=list');         
                 } else {
                     echo "Please log in first to see this page.";
                 }
     
             }
 
+            }
 
         }
-    }
 
     public function creation() {  
         include_once('./views/user/creation.php');
@@ -65,17 +65,9 @@ class UtilisateurController{
         {
             include_once('models/utilisateurModel.php');
             $um = new UtilisateurModel();
-            $find = $um->register($_POST['email'],$_POST['pseudo'],$_POST['mdp'] );  
             $mdp = $_POST['mdp'];
-            $mpdCrypt = crypt($mdp);
-            $find = $um->verifDoubleMail($_POST['email']);
-            if($find == false){
-                $find = $um->register($_POST['email'],$_POST['pseudo'],$mpdCrypt );  
-                return true; 
-            }
-            else{
-                echo "<script>alert(\"Il y a déjà un compte associé a cette adresse mail\")</script>";
-            }
+            $mpdCrypt = crypt($mdp, '$1$rasmusle$');
+            $find = $um->register($_POST['email'],$_POST['pseudo'],$mpdCrypt );  
             header('Location: /index.php?controller=utilisateur&action=connexion');
         }
     }
