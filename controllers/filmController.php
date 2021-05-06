@@ -74,7 +74,7 @@ class FilmController {
         $nbr = $data['nbr'];
 
         $um = new FilmModel();
-        $find = $um->addLike($idFilm,$nbr);  
+        $find = $um->addLike($idFilm,$nbr, $_SESSION['id']);  
     }
 
     public function averageLike() {
