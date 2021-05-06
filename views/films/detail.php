@@ -134,7 +134,7 @@ use App\Models\ReviewModel;
                     ?>
         </h5>        
 
-                    <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>
+
         </h5>
         
     </div>
