@@ -67,8 +67,17 @@ class UtilisateurController{
             $um = new UtilisateurModel();
             $mdp = $_POST['mdp'];
             $mpdCrypt = crypt($mdp, '$1$rasmusle$');
-            $find = $um->register($_POST['email'],$_POST['pseudo'],$mpdCrypt );  
-            header('Location: /index.php?controller=utilisateur&action=connexion');
+
+            $find = $um->verifDoubleMail($_POST['email']);
+            var_dump($find);
+            if($find){
+                echo "<script>alert(\"L'adresse mail est déjà associé a un compte\")</script>";
+            }
+            else{
+                $find = $um->register($_POST['email'],$_POST['pseudo'],$mpdCrypt );
+                header('Location: /index.php?controller=utilisateur&action=connexion');
+            }
+            
         }
     }
 
