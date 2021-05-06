@@ -23,8 +23,7 @@ class UtilisateurController{
             $um = new UtilisateurModel();
             $mdpH = $um->recupMDP($_POST['email']);
             $mdpNH = $_POST['mdp'];
-            if(hash_equals($mdpH, crypt($mdpNH, $mdpH))){
-                var_dump(hash_equals($mdpH, crypt($mdpNH, $mdpH)));
+            if(hash_equals($mdpH, crypt($mdpNH, '$1$rasmusle$'))){
                 $find = $um->login($_POST['email'],$mdpH);  
 
                 if (isset($find) && !empty($find)) {
@@ -66,8 +65,7 @@ class UtilisateurController{
             include_once('models/utilisateurModel.php');
             $um = new UtilisateurModel();
             $mdp = $_POST['mdp'];
-            $mpdCrypt = md5($mdp);
-            var_dump($mpdCrypt);
+            $mpdCrypt = crypt($mdp, '$1$rasmusle$');
             $find = $um->register($_POST['email'],$_POST['pseudo'],$mpdCrypt );  
             header('Location: /index.php?controller=utilisateur&action=connexion');
         }
