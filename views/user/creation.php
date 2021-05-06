@@ -19,7 +19,7 @@
         <input type="password" placeholder="Saisir le mot de passe" name="mdp" id="psw" required>
 
         <a href="index.php?controller=utilisateur&action=connexion" name="clickEnregistrer" >
-            <button type="submit" class="registerbtn"  > 
+            <button type="button" class="registerbtn"  > 
             S'enregistrer</button>
         </a>
         <div class="container signin">

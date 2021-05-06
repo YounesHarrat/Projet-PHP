@@ -101,9 +101,15 @@ function Deconnexion() {
         <h5>L'utilisateur   
         <?= $user->login ?> 
             dit : <I>"<?=$r->review?>"</I><br>
+            <?php
+            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                ?>
             <button type="button" onclick=recuperationReview(<?=$r->id?>) class="btn btn-outline-warning btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModalReview">
                         Noter ce commentaire
                         </button>
+            <?php
+            }
+            ?>
                     <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>
         </h5>
         
