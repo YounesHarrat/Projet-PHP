@@ -29,3 +29,4 @@ function save($id ) {
         <button type="sumbit" class="btn btn-warning mt-2" onclick=<?php save($id) ?> >Envoyer</button>
         </div>
     </form>
+ 
