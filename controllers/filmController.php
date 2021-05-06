@@ -20,6 +20,10 @@ class FilmController {
     }
 
     public function create() {
+
+        if( isset($_POST['titre']) && isset($_POST['date']) && isset($_POST['duree']))
+
+
         include_once "./views/films/create.php";
         echo "<br>";
         $this->footer();
@@ -38,7 +42,7 @@ class FilmController {
             // $tab_r = $reviews->findOne(1);
         }
         include_once "./views/films/detail.php";
-        // $this->addReview($id);
+        $this->addReview($id);
         echo "<br>";
         $this->footer();
     }

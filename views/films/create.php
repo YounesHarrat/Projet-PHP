@@ -58,34 +58,36 @@ if ($_SESSION['role'] && $_SESSION['role'] != 1) {
 <div style="display:flex;flexDirection:column;padding: 10px; border: 1px solid black; flex-wrap: wrap; justify-content: space-evenly;">
 
 
-    <form action="">
+    <form action="" method="POST" >
 
         <div class="row">
             <label for="titre">Titre</label>
-            <input type="text" /> 
+            <input type="text" name="titre" /> 
         </div>
 
         <div class="row">
             <label for="date">Date de Sortie</label>    
-            <input type="date" />   
+            <input type="date" name="date" />   
         </div>
 
         <div class="row">
             <label for="duree">Duree</label>
-            <input type="time" />
+            <input type="time" name="duree" />
         </div>
                 
         <div class="row">
             <label for="acteurs">Acteurs</label>
-            <input type="text" />
+            <input type="text" name="acteurs" />
         </div>
 
         <div class="row">
             <label for="affiche">Affiche url</label>
-            <input type="url" />
+            <input type="url" name="affiche" />
         </div>
 
+            <a href="/index.php?controller=film&action=create">
         <button type="submit">Valider</button>
+        </a>    
         <button type="reset">Reset</button>
     </form>
 
