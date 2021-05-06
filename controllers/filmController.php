@@ -83,6 +83,16 @@ class FilmController {
         var_dump($find);
         return $find;
     }
+
+    public function updateReview(){
+        $content = trim(file_get_contents("php://input"));
+        $data = json_decode($content, true);
+        $id = $data['id'];
+        $newReview = $data['newReview'];
+        var_dump($id,$newReview);
+        $review = new ReviewModel();
+        $tab_r = $review->updateReview($id, $newReview);        
+    }
 }
 
    

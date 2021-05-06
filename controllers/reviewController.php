@@ -55,4 +55,3 @@ class ReviewController {
         include_once "./views/films/detail.php";
     }
 
-}

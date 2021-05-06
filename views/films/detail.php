@@ -30,7 +30,7 @@ use App\Models\ReviewModel;
     
 <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo "<b style='color:white;padding:30px;'>Welcome to the member's area, " . $_SESSION['pseudo'] . "!</b>";
+                echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . " !</b>";
 
                 // TODO redirect to login page after deconnexion successful
                 echo "
@@ -65,18 +65,22 @@ use App\Models\ReviewModel;
 <div style="display:flex;flexDirection:row;padding: 10px; border: 1px solid black; flex-wrap: wrap; justify-content: space-evenly;">
     <?php
     foreach($tab_f as $f) {
+    ?>
 
-        echo "<div style='justify-content: space-around;text-align:center;'  > ";
-        echo "<br>";
-        echo '<p> <h1><b>' . $f->nom . '</b></h1>.</p>';
+        <div class="card" style="width: 18rem;">
+                <img src="<?=$f->affiche?>" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title text-center"><?=$f->nom?></h5>
+            </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><B>Date de sortie :</B> <?= $f->dateSortie ?></li>
+                    <li class="list-group-item"><B>Acteurs :</B> <?= $f->acteurs ?></li>
+                    <li class="list-group-item"><B>Sypnosis :</B> <?= $f->sypnosis ?></li>
+                </ul>
+        </div>
+</div>
 
-        echo "<img src='" . $f->affiche . "' style='width:240px;height:400px;'/>";
-        echo '<p> Date de Sortie : [ ' . $f->dateSortie . '].</p>';
-        echo '<p> Durée : ' . $f->duree . '.</p>';
-        echo '<p> Acteurs : <b> ' . $f->acteurs . '</b>.</p>';
-
-        // echo '<p> Affiche : ' . $f->affiche . '.</p>';
-        echo "</div>";
+    <?php
     }
     ?>
 </div>
@@ -84,28 +88,33 @@ use App\Models\ReviewModel;
 <!-- //TODO ajouter la partie REVIEW -->
 
 <div class="containerReview">
-    <h1> Reviews:  </h1>
+    <h1> Commentaires :  </h1>
     <?php
     foreach($tab_r as $r) {
         $um = new UtilisateurModel();
         $users = $um->findOne($r->fk_utilisateur);
         $user = array_shift($users);
     ?>
+    
     <div style="padding:30px;">
         <h5>L'utilisateur   
         <?= $user->login ?> 
             dit : <I>"<?=$r->review?>"</I><br>
-            <button type="button" onclick=recuperationReview(<?=$r->id?>) class="btn btn-outline-warning btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModalReview">
+            <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>
+            <button type="button" onclick=recuperationReview(<?=$r->id?>) class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalReview">
                         Noter ce commentaire
-                        </button>
-                    <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>
-        </h5>
-        
+            </button>
+            <button type="button" onclick=recuperationReviewUpdate(<?=$r->id?>) class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalReviewUpdate">
+                        Modifier le commentaire
+            </button>            
+        </h5>        
     </div>
 
     <?php
     }
     ?>
+
+<!-- MODAL STAR -->
     <div class="modal fade" id="exampleModalReview" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -132,14 +141,31 @@ use App\Models\ReviewModel;
                 </div>
                 </div>
             </div>
+        </div>  
+    </div>
+
+<!-- MODAL UPDATE -->
+<div class="modal fade" id="exampleModalReviewUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <div class="input-group mb-3">
+                <input type="hidden" id="modalIdReviewUpdate">
+                    <span class="input-group-text" id="newReview">Nouveau commentaire</span>
+                    <input type="text" id="newCom" class="form-control" aria-label="Sizing example input" aria-describedby="newReviewUpdate">
+                </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" onclick=onClickReviewUpdate()>Modifier</button>
+                </div>
+                </div>
             </div>
-    
-
-
-</div>
-
-
-
+        </div>  
+    </div>
 
 </body>
 </html>

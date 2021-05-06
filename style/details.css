@@ -34,3 +34,12 @@ a{
 .containerReview{
     margin-bottom: 30px;
 }
+
+.imgDetail{
+    max-width: 300px;
+    max-height: 500px;
+}
+
+.detailInfo{
+    margin-left: 50px;
+}

@@ -38,4 +38,10 @@ class ReviewModel extends Db {
         $find->bindParam(3, $filmId);
         $find->execute();
     }
+
+    public function updateReview($id, $review){
+        var_dump($id, $review);
+        $find = $this->db->prepare('UPDATE film.review SET review=? WHERE id=?');
+        $find->execute(array($review, $id));
+    }
 }
