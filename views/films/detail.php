@@ -108,12 +108,16 @@ use App\Models\ReviewModel;
             <button type="button" onclick=recuperationReview(<?=$r->id?>) class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalReview">
                         Noter ce commentaire
             </button>
+                  <?php
+                if(isset($_SESSION['id']) && $_SESSION['id'] == $r->fk_utilisateur) {
+                ?>
+                <button type="button" onclick=recuperationReviewUpdate(<?=$r->id?>) class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalReviewUpdate">
+                            Modifier le commentaire
+                </button>           
             <?php
+                }
             }
-            ?>
-            <button type="button" onclick=recuperationReviewUpdate(<?=$r->id?>) class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalReviewUpdate">
-                        Modifier le commentaire
-            </button>            
+            ?> 
         </h5>        
 
                     <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>

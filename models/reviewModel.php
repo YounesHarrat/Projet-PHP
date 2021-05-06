@@ -41,7 +41,7 @@ class ReviewModel extends Db {
 
     public function updateReview($id, $review){
         var_dump($id, $review);
-        $find = $this->db->prepare('UPDATE film.review SET review=? WHERE id=?');
-        $find->execute(array($review, $id));
+        $find = $this->db->prepare('UPDATE film.review SET review=? WHERE id=? and id_utilisateur=?');
+        $find->execute(array($review, $id, $_SESSION[id]));
     }
 }
