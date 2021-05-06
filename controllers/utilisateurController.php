@@ -22,8 +22,8 @@ class UtilisateurController{
             $mdpH = $um->recupMDP($_POST['email']);
             $mdpNH = $_POST['mdp'];
             if(hash_equals($mdpH, crypt($mdpNH, $mdpH))){
-                $find = $um->login($_POST['email'],$_POST['mdp']);  
-            
+                var_dump(hash_equals($mdpH, crypt($mdpNH, $mdpH)));
+                $find = $um->login($_POST['email'],$mdpH);  
                 if (isset($find) && !empty($find)) {
                     $user = array_shift($find);
                     session_start();
