@@ -51,11 +51,12 @@ class UtilisateurController{
                 } else {
                     echo "Please log in first to see this page.";
                 }
+    
+            }
 
             }
 
         }
-    }
 
     public function creation() {  
         include_once('./views/user/creation.php');
@@ -69,8 +70,6 @@ class UtilisateurController{
             $find = $um->register($_POST['email'],$_POST['pseudo'],$mpdCrypt );  
             header('Location: /index.php?controller=utilisateur&action=connexion');
         }
-
-        
     }
 
 

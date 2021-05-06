@@ -28,7 +28,6 @@ class UtilisateurModel extends Db {
         $find = $this->db-> prepare('SELECT * FROM film.utilisateur WHERE login = ? and password = ?');
         $find->execute(array($login, $mdp));
         $result = $find->fetchAll();
-        var_dump($result);
         return $result;
     }
     public function recupMDP($login){
@@ -40,6 +39,13 @@ class UtilisateurModel extends Db {
         } else {
             return $result;
         }
+    }
+
+    public function verifDoubleMail($login){
+        $find = $this->db-> prepare('SELECT login FROM film.utilisateur WHERE login = ?');
+        $find->execute(array($login));
+        $result = $find->fetchAll();
+        return $result;
     }
 
     public function register($email, $pseudo, $mdp){
