@@ -14,7 +14,7 @@
             <div class="container">
                 <h1> Se connecter </h1>
 
-                <label for="pseudo"><b>Email</b></label> : <input type="email" placeholder="Saisir l'email" name="pseudo" id="pseudo" />
+                <label for="email"><b>Email</b></label> : <input type="email" placeholder="Saisir l'email" name="email" id="pseudo" />
 
                 <label for="mdp"><b>Mot de passe</b></label> :  <input type="password" placeholder="Saisir le mot de passe" name="mdp" id="mdp" /><br />
 
