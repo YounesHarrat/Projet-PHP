@@ -51,8 +51,15 @@ class ReviewController {
         $r = array_shift($argsArray);
         $fkUser = array_shift($argsArray);
         $fkFilm = array_shift($argsArray);
-        $tab_r = $review->saveOne($r, $fkUser, $fkFilm);
+        $review->saveOne($r, $fkUser, $fkFilm);
         include_once "./views/films/detail.php";
+
     }
 
+    public function deleteReview($argsArray) {
+        $review = new ReviewModel();
+        $id = array_shift($argsArray);
+        $review->deleteOne($id);
+        header('Location: '. $_SERVER['HTTP_REFERER']);
+    }
 }

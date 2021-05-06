@@ -2,6 +2,7 @@
 
 use App\Models\UtilisateurModel;
 use App\Models\ReviewModel;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -99,10 +100,23 @@ use App\Models\ReviewModel;
             <?php
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 ?>
-            <button type="button" onclick=recuperationReview(<?=$r->id?>) class="btn btn-outline-warning btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModalReview">
-                        Noter ce commentaire
+                        <button type="button" onclick=recuperationReview(<?=$r->id?>) class="btn btn-outline-warning btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModalReview">
+                            Noter ce commentaire
                         </button>
+
+                    <!-- // TODO if admin, ajouter bouton delete -->
+                    <?php
+                    if(isset($_SESSION['role']) && $_SESSION['role'] == "2") {
+                        $url = "/index.php?controller=review&action=deleteReview&id=" . $r->id ; 
+                    ?>
+
+                    <a href=<?= $url ?> >
+                        <button type="button" class="btn btn-outline-danger btnDelete">
+                                Delete ce commentaire
+                        </button>
+                    </a>
             <?php
+                    }
             }
             ?>
                     <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>

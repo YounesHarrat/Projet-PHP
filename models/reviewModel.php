@@ -38,4 +38,10 @@ class ReviewModel extends Db {
         $find->bindParam(3, $filmId);
         $find->execute();
     }
+
+    public function deleteOne($id) {
+        $find = $this->db->prepare('DELETE FROM film.review WHERE id = ? ');
+        $find->bindParam(1,$id);
+        $find->execute();
+    }
 }

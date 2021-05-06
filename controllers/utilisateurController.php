@@ -41,22 +41,16 @@ class UtilisateurController{
                 } else {
                     $_SESSION['loggedin'] = false;
                 }
-            
-
 
                 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     // TODO redirect to main page after login successful
-
                         header('Location: /index.php?controller=film&action=list');         
                 } else {
                     echo "Please log in first to see this page.";
                 }
-    
             }
-
-            }
-
         }
+    }
 
     public function creation() {  
         include_once('./views/user/creation.php');
