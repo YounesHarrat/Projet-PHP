@@ -37,6 +37,13 @@ class UtilisateurModel extends Db {
         return $result[0]["password"];
     }
 
+    public function verifDoubleMail($login){
+        $find = $this->db-> prepare('SELECT login FROM film.utilisateur WHERE login = ?');
+        $find->execute(array($login));
+        $result = $find->fetchAll();
+        return $result;
+    }
+
     public function register($email, $pseudo, $mdp){
         $find = $this->db->prepare('INSERT INTO film.utilisateur (`login`, `password`, `pseudo`, `fk_role`) VALUES (?,?,?,1)');
         $find->bindParam(1, $email);
