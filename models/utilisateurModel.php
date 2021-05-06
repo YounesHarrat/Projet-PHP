@@ -30,10 +30,29 @@ class UtilisateurModel extends Db {
         $result = $find->fetchAll();
         return $result;
     }
-    public function register($login, $mdp){
-        $find = $this->db->prepare('INSERT INTO film.utilisateur (`login`, `password`, `fk_role`) VALUES (?,?,1)');
-        $find->bindParam(1, $login);
+    public function recupMDP($login){
+        $find = $this->db-> prepare('SELECT password FROM film.utilisateur WHERE login = ?');
+        $find->execute(array($login));
+        $result = $find->fetchAll();
+        if (isset($result)) {
+            return $result[0]["password"];
+        } else {
+            return $result;
+        }
+    }
+
+    public function verifDoubleMail($login){
+        $find = $this->db-> prepare('SELECT login FROM film.utilisateur WHERE login = ?');
+        $find->execute(array($login));
+        $result = $find->fetchAll();
+        return $result;
+    }
+
+    public function register($email, $pseudo, $mdp){
+        $find = $this->db->prepare('INSERT INTO film.utilisateur (`login`, `password`, `pseudo`, `fk_role`) VALUES (?,?,?,1)');
+        $find->bindParam(1, $email);
         $find->bindParam(2, $mdp);
+        $find->bindParam(3, $pseudo);
         $find->execute();
     }
 }

@@ -1,8 +1,5 @@
-<?php
 
-session_start();
 
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,18 +26,23 @@ session_start();
     </div>
     
 <?php
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . " !</b>";
 
+
+
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . "</b>";
                 // TODO redirect to login page after deconnexion successful
-                echo "
-                <a href='/index.php?controller=utilisateur&action=connexion'>
-                <button type='button' class='btn btn-outline-danger btnConnexion'>Se Deconnecter</button>
+                ?>
+                <a href="index.php?controller=utilisateur&action=deconnexion">
+                <button type='submit' class='btn btn-outline-danger btnConnexion'>Se Deconnecter</button>
                 </a>
-                ";
+                
+              <?php
+                
                 // header('Location: /index.php?controller=film&action=list');
 
             } else {
+                
                 echo "
                 <a href='/index.php?controller=utilisateur&action=connexion'>
                 <button type='button' class='btn btn-outline-success btnConnexion'>Se connecter</button>
@@ -75,14 +77,24 @@ session_start();
                     </a>
 
                     <!-- Button trigger modal -->
+                    <?php
+                    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                        ?>
                         <button type="button" onclick=recuperationFilm(<?=$f->id?>) class="btn btn-outline-warning mt-2 btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Noter ce film
                         </button>
+                        <?php
+                    } else {
+
+                    }
+                        ?>
+
                                     <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
+                <h5 class="modal-title">Comment avez vous trouvé le film ?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -120,16 +132,6 @@ session_start();
         </div>
         </div>
 
-
-<!-- FOOTER -->
-        <footer class="bg-dark text-center text-lg-start">
-    <!-- Copyright -->
-    <div class="text-center p-3 text-light">
-      © 2020 Copyright:
-      <a class="text-light" href="https://mdbootstrap.com/">Cinech'Nord.com</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
 
     </body>
 </html>

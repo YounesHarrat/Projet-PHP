@@ -36,7 +36,8 @@ class Main {
                 (isset($param)) ? $controller->$action($param) : $controller->$action();
             } else {
                 http_response_code(404);
-                echo "page recherchée introuvable";
+                $fc = new MainController();
+                $fc->notFound();
             }
           
         }

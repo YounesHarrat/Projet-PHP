@@ -10,8 +10,8 @@ class FilmController {
     public $numero;
     # classe à appeler si on ne renseigne pas de paramètre dans l'url
     public function index() {
-        include_once "./views/films/index.php";
         $this->list();
+        
     }
 
 
@@ -21,6 +21,8 @@ class FilmController {
 
     public function create() {
         include_once "./views/films/create.php";
+        echo "<br>";
+        $this->footer();
     }
 
     public function detail($argsArray) {
@@ -36,7 +38,7 @@ class FilmController {
             // $tab_r = $reviews->findOne(1);
         }
         include_once "./views/films/detail.php";
-        $this->addReview($id);
+        // $this->addReview($id);
         echo "<br>";
         $this->footer();
     }
@@ -60,6 +62,8 @@ class FilmController {
         if (isset($numero) && $numero != ""){
             $this->addLike($numero);
         }
+        echo "<br>";
+        $this->footer();
     }
 
     public function addLike() {

@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 use App\Models\UtilisateurModel;
 use App\Models\ReviewModel;
 ?>
@@ -29,16 +28,18 @@ use App\Models\ReviewModel;
     </div>
     
 <?php
+
+
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . " !</b>";
 
                 // TODO redirect to login page after deconnexion successful
-                echo "
-                <a href='/index.php?controller=utilisateur&action=connexion'>
-                <button type='button' class='btn btn-outline-danger btnConnexion'>Se Deconnecter</button>
+                ?>
+                <a href="index.php?controller=utilisateur&action=deconnexion">
+                <button type='submit' class='btn btn-outline-danger btnConnexion'>Se Deconnecter</button>
                 </a>
-                ";
-                // header('Location: /index.php?controller=film&action=list');
+                
+                <?php
 
             } else {
                 echo "
@@ -108,6 +109,18 @@ use App\Models\ReviewModel;
                         Modifier le commentaire
             </button>            
         </h5>        
+            <?php
+            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                ?>
+            <button type="button" onclick=recuperationReview(<?=$r->id?>) class="btn btn-outline-warning btnInfo" data-bs-toggle="modal" data-bs-target="#exampleModalReview">
+                        Noter ce commentaire
+                        </button>
+            <?php
+            }
+            ?>
+                    <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>
+        </h5>
+        
     </div>
 
     <?php
@@ -119,6 +132,7 @@ use App\Models\ReviewModel;
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
+                <h5 class="modal-title">Evaluez le commentaire</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -139,10 +153,46 @@ use App\Models\ReviewModel;
                         </form>
                     </div>
                 </div>
-                </div>
             </div>
         </div>  
     </div>
+        </div>
+    </div>
+    <?php            
+        function save($id ) {
+            $rm = new ReviewModel();
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                $fkUser = $_SESSION['id'];
+            }
+            $fkFilm = $id;
+            if (isset($_POST['review']) && $_POST['review'] != "" ){
+                $reviewText = $_POST['review']; 
+                $rm->saveOne($reviewText,$fkUser, $fkFilm);
+            }
+        }
+        
+        
+        
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        ?>
+            <form class="formReview" action="" method="POST">        
+                <div class="input-group">
+                    <h5 class="addReview">Ajouter un commentaire : </h5>
+                    <textarea class="form-control" name="review" placeholder="Donnez nous votre avis">
+                    
+                    </textarea>
+                </div>
+                <div class="d-grid gap-2">
+
+                <button type="sumbit" class="btn btn-warning" onclick=<?php save($id) ?> >Envoyer</button>
+                </div>
+            </form>
+        <?php
+        }
+        ?>    
+
+</div>
+
 
 <!-- MODAL UPDATE -->
 <div class="modal fade" id="exampleModalReviewUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
