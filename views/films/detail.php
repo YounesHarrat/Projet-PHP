@@ -2,6 +2,7 @@
 
 use App\Models\UtilisateurModel;
 use App\Models\ReviewModel;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -117,7 +118,20 @@ use App\Models\ReviewModel;
             <?php
                 }
             }
-            ?> 
+                // TODO if admin, ajouter bouton delete 
+
+                    if(isset($_SESSION['role']) && $_SESSION['role'] == "2") {
+                        $url = "/index.php?controller=review&action=deleteReview&id=" . $r->id ; 
+                    ?>
+
+                    <a href=<?= $url ?> >
+                        <button type="button" class="btn btn-outline-danger btnDelete">
+                                Delete ce commentaire
+                        </button>
+                    </a>
+            <?php
+                    }
+                    ?>
         </h5>        
 
                     <p><B>Note du commentaire :</B> <?= $r->notation ?>/5 <i class="fas fa-star"></i></p>

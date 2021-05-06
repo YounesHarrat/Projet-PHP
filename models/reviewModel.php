@@ -44,4 +44,10 @@ class ReviewModel extends Db {
         $find = $this->db->prepare('UPDATE film.review SET review=? WHERE id=? and fk_utilisateur=?');
         $find->execute(array($review, $id, $_SESSION['id']));
     }
+    
+    public function deleteOne($id) {
+        $find = $this->db->prepare('DELETE FROM film.review WHERE id = ? ');
+        $find->bindParam(1,$id);
+        $find->execute();
+    }
 }
