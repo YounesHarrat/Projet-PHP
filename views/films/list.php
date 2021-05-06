@@ -33,8 +33,7 @@
 
 
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . " !</b>";
-
+                echo "<b style='color:white;padding:30px;'>Bienvenue " . $_SESSION['pseudo'] . "</b>";
                 // TODO redirect to login page after deconnexion successful
                 ?>
                 <a href="index.php?controller=utilisateur&action=deconnexion">

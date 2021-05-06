@@ -9,6 +9,8 @@ use App\Models\UtilisateurModel;
 
 class UtilisateurController{
 
+    public $currentPseudo;
+
     public function index() {
     }
     
@@ -63,6 +65,7 @@ class UtilisateurController{
         {
             include_once('models/utilisateurModel.php');
             $um = new UtilisateurModel();
+            $find = $um->register($_POST['email'],$_POST['pseudo'],$_POST['mdp'] );  
             $mdp = $_POST['mdp'];
             $mpdCrypt = crypt($mdp);
             $find = $um->verifDoubleMail($_POST['email']);
@@ -73,6 +76,7 @@ class UtilisateurController{
             else{
                 echo "<script>alert(\"Il y a déjà un compte associé a cette adresse mail\")</script>";
             }
+            header('Location: /index.php?controller=utilisateur&action=connexion');
         }
     }
 
