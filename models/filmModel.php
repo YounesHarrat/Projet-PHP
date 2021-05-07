@@ -48,6 +48,7 @@ class FilmModel extends Db {
         return $result;               
     }
 
+    // gère la vérification dans la bdd avant d'ajouter un like sur film
     public function isInBDD($idFilm, $nbr, $idUser) {
         $find = $this->db->query('SELECT * FROM film.likefilm WHERE fk_films = '. $idFilm .' AND fk_user =' . $idUser);
 
@@ -55,4 +56,17 @@ class FilmModel extends Db {
         
         return empty($find);
     }
+
+    // gere l ajout d un film par un admin
+    public function create($titre,$date,$duree,$acteurs,$affiche,$synopsis) {
+        $create = $this->db->prepare('INSERT INTO film.film (`nom`, `duree`, `dateSortie`, `acteurs`, `affiche`) VALUES (?,?,?,?,?)');
+        $create->bindParam(1, $titre);
+        $create->bindParam(2, $duree);
+        $create->bindParam(3, $dateSortie);
+        $create->bindParam(4, $acteurs);
+        $create->bindParam(5, $affiche);
+        // $create->bindParam(6, $synopsis);
+        $create->execute();
+    }
+
 }

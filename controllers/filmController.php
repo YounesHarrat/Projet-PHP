@@ -21,7 +21,10 @@ class FilmController {
 
     public function create() {
 
-        if( isset($_POST['titre']) && isset($_POST['date']) && isset($_POST['duree']))
+        if( isset($_POST['titre']) && isset($_POST['date']) && isset($_POST['duree']) && isset($_POST['acteurs']) && isset($_POST['affiche']) && isset($_POST['synopsis'])) {
+            $films = new FilmModel();
+            $films->create($_POST['titre'], $_POST['date'], $_POST['duree'], $_POST['acteurs'], $_POST['affiche'], $_POST['synopsis']);
+        }
 
 
         include_once "./views/films/create.php";
