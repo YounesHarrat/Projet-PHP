@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+// session_start();
 
 if ($_SESSION['role'] && $_SESSION['role'] != 1) {
     
@@ -72,12 +72,17 @@ if ($_SESSION['role'] && $_SESSION['role'] != 1) {
 
         <div class="row">
             <label for="duree">Duree</label>
-            <input type="time" name="duree" />
+            <input type="text" name="duree" />
         </div>
                 
         <div class="row">
             <label for="acteurs">Acteurs</label>
             <input type="text" name="acteurs" />
+        </div>
+
+        <div class="row">
+            <label for="synopsis">Synopsis</label>
+            <input type="text" name="synopsis" />
         </div>
 
         <div class="row">

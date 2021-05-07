@@ -18,7 +18,12 @@ class Main {
              * on instancie un controller portant le nom de cette value
              */
             $controller = '\\App\\Controllers\\'.ucfirst(array_shift($param)).'Controller';
-            $controller = new $controller();
+            
+            try {
+                $controller = new $controller();
+            } catch (\Throwable $th) {
+               
+            }
 
             /**
              * dans le cas d'un deuxieme paramètre orientant vers une méthode de la classe précédemment instanciée
