@@ -17,6 +17,10 @@ function save($id ) {
        
 ?>
 
+            <?php
+                if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+            ?>
+
     <form class="formReview" action="" method="POST">        
         <div class="input-group">
             <div class="input-group input-group-lg">
@@ -30,3 +34,8 @@ function save($id ) {
         </div>
     </form>
  
+        <?php
+            } else {
+
+            }
+        ?>
